@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Caffè Nero · Reçete Rehberi</title>
+<meta name="description" content="Caffè Nero reçete rehberi — sıcak/soğuk içecek tarifleri, malzeme ölçüleri ve hazırlanış adımları." />
+
+<!-- Open Graph / WhatsApp / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://nerocaffe.netlify.app/" />
+<meta property="og:title" content="Caffè Nero · Reçete Rehberi" />
+<meta property="og:description" content="Caffè Nero reçete rehberi — sıcak/soğuk içecek tarifleri, malzeme ölçüleri ve hazırlanış adımları." />
+<meta property="og:image" content="https://nerocaffe.netlify.app/images/unnamed.jpg" />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:alt" content="Caffè Nero logosu" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:site_name" content="Caffè Nero Reçete Rehberi" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Caffè Nero · Reçete Rehberi" />
+<meta name="twitter:description" content="Caffè Nero reçete rehberi — sıcak/soğuk içecek tarifleri, malzeme ölçüleri ve hazırlanış adımları." />
+<meta name="twitter:image" content="https://nerocaffe.netlify.app/images/unnamed.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f4ecdc;
+    --paper-2:#efe5d2;
+    --ink:#2a2018;
+    --ink-soft:#5b5042;
+    --line:#d9cbb2;
+    --card:#fbf6ec;
+    --sicak:#bf6b2e;     /* amber */
+    --soguk:#3f7d86;     /* teal  */
+    --oz:#6f7e4c;        /* matcha */
+    --yemek:#b04a36;     /* terracotta */
+    --yeni:#9b5b8a;      /* plum  */
+    --shadow:0 1px 0 rgba(42,32,24,.04), 0 12px 30px -18px rgba(42,32,24,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Schibsted Grotesk',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+    min-height:100vh;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(191,107,46,.06), transparent 38%),
+      radial-gradient(circle at 88% 4%, rgba(63,125,134,.06), transparent 40%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:rgba(244,236,220,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-inner{max-width:1180px;margin:0 auto;padding:18px 22px 14px}
+  .brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .brand .mark{
+    font-family:'Fraunces',serif;font-weight:600;font-size:30px;letter-spacing:-.5px;
+    line-height:1;
+  }
+  .brand .mark em{font-style:italic;color:var(--sicak)}
+  .brand .sub{font-size:12.5px;color:var(--ink-soft);letter-spacing:.3px}
+  .count-pill{
+    margin-left:auto;font-size:12px;color:var(--ink-soft);
+    border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:var(--card);
+    white-space:nowrap;
+  }
+
+  /* ---------- Search ---------- */
+  .search-wrap{position:relative;margin-top:14px}
+  .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.4}
+  #search{
+    width:100%;font-family:inherit;font-size:15px;color:var(--ink);
+    padding:13px 16px 13px 42px;border-radius:14px;border:1px solid var(--line);
+    background:var(--card);outline:none;transition:border-color .2s, box-shadow .2s;
+  }
+  #search::placeholder{color:#a99b85}
+  #search:focus{border-color:var(--sicak);box-shadow:0 0 0 4px rgba(191,107,46,.12)}
+
+  /* ---------- Chips ---------- */
+  .chip-row{display:flex;gap:8px;margin-top:12px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  .chip-row::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;
+    padding:8px 14px;border-radius:999px;border:1px solid var(--line);
+    background:var(--card);color:var(--ink-soft);transition:all .18s;white-space:nowrap;
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  .chip .dot{width:8px;height:8px;border-radius:50%}
+  .chip:hover{border-color:var(--ink-soft);color:var(--ink)}
+  .chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .chip.active .dot{box-shadow:0 0 0 2px rgba(244,236,220,.5)}
+  .group-row{margin-top:8px}
+  .group-row .chip{font-size:12.5px;padding:6px 12px}
+
+  /* ---------- Grid ---------- */
+  main{max-width:1180px;margin:0 auto;padding:26px 22px 80px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:16px}
+  .card{
+    position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:18px 18px 16px;cursor:pointer;text-align:left;font-family:inherit;color:inherit;
+    box-shadow:var(--shadow);transition:transform .18s, box-shadow .18s, border-color .18s;
+    overflow:hidden;
+  }
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--catclr,var(--line))}
+  .card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -20px rgba(42,32,24,.5);border-color:var(--catclr,var(--ink-soft))}
+  .card .grp{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--catclr)}
+  .card h3{font-family:'Fraunces',serif;font-weight:500;font-size:19px;line-height:1.18;margin:7px 0 10px;letter-spacing:-.2px}
+  .card .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .tag{font-size:10.5px;font-weight:600;letter-spacing:.3px;padding:3px 8px;border-radius:6px;background:var(--paper-2);color:var(--ink-soft)}
+  .tag.k{background:rgba(191,107,46,.13);color:#8a4a18}
+  .tag.nk{background:rgba(111,126,76,.16);color:#4f5b34}
+  .badge-yeni{position:absolute;top:13px;right:13px;font-size:9.5px;font-weight:700;letter-spacing:.6px;
+    background:var(--yeni);color:#fff;padding:3px 7px;border-radius:6px;text-transform:uppercase}
+  .empty{text-align:center;padding:70px 20px;color:var(--ink-soft)}
+  .empty .big{font-family:'Fraunces',serif;font-size:24px;color:var(--ink);margin-bottom:6px}
+
+  /* ---------- Detail Modal ---------- */
+  .overlay{position:fixed;inset:0;z-index:60;background:rgba(30,22,16,.5);backdrop-filter:blur(3px);
+    opacity:0;pointer-events:none;transition:opacity .25s;display:flex;justify-content:center;align-items:flex-end}
+  .overlay.open{opacity:1;pointer-events:auto}
+  @media(min-width:720px){.overlay{align-items:center}}
+  .sheet{
+    background:var(--paper);width:100%;max-width:640px;max-height:92vh;overflow-y:auto;
+    border-radius:22px 22px 0 0;transform:translateY(24px);transition:transform .28s cubic-bezier(.2,.8,.2,1);
+    border:1px solid var(--line);
+  }
+  @media(min-width:720px){.sheet{border-radius:22px}}
+  .overlay.open .sheet{transform:translateY(0)}
+  .sheet-head{position:sticky;top:0;background:var(--paper);padding:22px 24px 16px;border-bottom:1px solid var(--line);z-index:2}
+  .sheet-head .grp{font-size:11.5px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--catclr)}
+  .sheet-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:26px;line-height:1.12;margin-top:6px;letter-spacing:-.4px;padding-right:36px}
+  .closeb{position:absolute;top:20px;right:20px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+    background:var(--card);cursor:pointer;font-size:18px;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;line-height:1}
+  .closeb:hover{color:var(--ink);border-color:var(--ink-soft)}
+  .sheet-body{padding:20px 24px 30px}
+  .meta-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+  .pill{font-size:12px;font-weight:600;padding:5px 11px;border-radius:8px;background:var(--card);border:1px solid var(--line);color:var(--ink-soft)}
+  .pill b{color:var(--ink)}
+
+  .sec-title{font-size:12px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--ink-soft);
+    margin:22px 0 12px;display:flex;align-items:center;gap:10px}
+  .sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+  .sec-title:first-child{margin-top:0}
+
+  /* measurement table */
+  table.olcu{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  table.olcu th,table.olcu td{padding:9px 12px;text-align:center;border-bottom:1px solid var(--line)}
+  table.olcu th{background:var(--paper-2);font-weight:600;font-size:11.5px;letter-spacing:.4px;color:var(--ink-soft)}
+  table.olcu td:first-child,table.olcu th:first-child{text-align:left;font-weight:600;color:var(--ink)}
+  table.olcu tr:last-child td{border-bottom:none}
+  table.olcu td.muted{color:#bcae97}
+
+  ol.steps{list-style:none;counter-reset:s}
+  ol.steps li{counter-increment:s;position:relative;padding:0 0 16px 42px;font-size:14.5px;color:var(--ink)}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:27px;height:27px;border-radius:50%;
+    background:var(--catclr,var(--ink));color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  ol.steps li::after{content:"";position:absolute;left:13px;top:28px;bottom:4px;width:1.5px;background:var(--line)}
+  ol.steps li:last-child{padding-bottom:0}
+  ol.steps li:last-child::after{display:none}
+
+  .note{background:rgba(191,107,46,.08);border:1px solid rgba(191,107,46,.25);border-radius:12px;padding:13px 15px;
+    font-size:13.5px;color:#7a4318;margin-top:14px;display:flex;gap:10px}
+  .note svg{flex:0 0 auto;margin-top:1px}
+  .linked{margin-top:14px}
+  .linked button{font-family:inherit;width:100%;text-align:left;background:var(--card);border:1px dashed var(--oz);
+    color:var(--ink);border-radius:12px;padding:12px 15px;cursor:pointer;font-size:13.5px;display:flex;align-items:center;gap:10px;transition:background .15s}
+  .linked button:hover{background:rgba(111,126,76,.1)}
+  .linked button b{color:var(--oz)}
+
+  /* ---------- Admin button ---------- */
+  .admin-btn{
+    font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;
+    border:1px solid var(--line);border-radius:999px;padding:5px 12px;
+    background:var(--card);color:var(--ink-soft);transition:all .18s;white-space:nowrap;
+  }
+  .admin-btn:hover{border-color:var(--ink-soft);color:var(--ink)}
+
+  /* ---------- Admin overlay ---------- */
+  .admin-overlay{position:fixed;inset:0;z-index:80;background:rgba(30,22,16,.5);backdrop-filter:blur(3px);
+    opacity:0;pointer-events:none;transition:opacity .25s;display:flex;justify-content:center;align-items:flex-end}
+  .admin-overlay.open{opacity:1;pointer-events:auto}
+  @media(min-width:720px){.admin-overlay{align-items:center}}
+  .admin-panel{
+    background:var(--paper);width:100%;max-width:720px;max-height:94vh;overflow-y:auto;
+    border-radius:22px 22px 0 0;transform:translateY(24px);transition:transform .28s cubic-bezier(.2,.8,.2,1);
+    border:1px solid var(--line);
+  }
+  @media(min-width:720px){.admin-panel{border-radius:22px}}
+  .admin-overlay.open .admin-panel{transform:translateY(0)}
+  .admin-head{position:sticky;top:0;background:var(--paper);padding:20px 24px 16px;border-bottom:1px solid var(--line);
+    z-index:2;display:flex;align-items:center;justify-content:space-between}
+  .admin-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:23px;letter-spacing:-.3px}
+  .admin-head .closeb{position:static}
+  .admin-body{padding:20px 24px 30px}
+
+  /* toolbar */
+  .admin-tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .admin-search{width:100%;font-family:inherit;font-size:14px;color:var(--ink);
+    padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);outline:none;margin-bottom:14px}
+  .admin-search:focus{border-color:var(--sicak);box-shadow:0 0 0 4px rgba(191,107,46,.12)}
+
+  /* buttons */
+  .btn{font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;border-radius:10px;
+    padding:9px 14px;border:1px solid var(--line);background:var(--card);color:var(--ink);transition:all .15s}
+  .btn:hover{border-color:var(--ink-soft)}
+  .btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .btn.primary:hover{opacity:.9}
+  .btn.danger{color:var(--yemek);border-color:rgba(176,74,54,.4)}
+  .btn.danger:hover{background:rgba(176,74,54,.1)}
+  .btn.sm{padding:6px 11px;font-size:12px}
+
+  /* recipe list */
+  .admin-cat-title{font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;
+    color:var(--catclr,var(--ink-soft));margin:18px 0 8px;display:flex;align-items:center;gap:8px}
+  .admin-cat-title::after{content:"";flex:1;height:1px;background:var(--line)}
+  .admin-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--card);
+    border:1px solid var(--line);border-radius:12px;margin-bottom:7px}
+  .admin-row .info{flex:1;min-width:0}
+  .admin-row .info .nm{font-weight:600;font-size:14.5px;font-family:'Fraunces',serif}
+  .admin-row .info .gr{font-size:11.5px;color:var(--ink-soft)}
+  .admin-row .acts{display:flex;gap:6px;flex:0 0 auto}
+  .admin-empty{text-align:center;color:var(--ink-soft);padding:30px}
+
+  /* form */
+  .admin-form .field{margin-bottom:14px}
+  .admin-form label{display:block;font-size:12px;font-weight:700;letter-spacing:.4px;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+  .admin-form input[type=text],.admin-form select,.admin-form textarea{
+    width:100%;font-family:inherit;font-size:14px;color:var(--ink);padding:10px 12px;
+    border-radius:10px;border:1px solid var(--line);background:var(--card);outline:none}
+  .admin-form input:focus,.admin-form select:focus,.admin-form textarea:focus{
+    border-color:var(--sicak);box-shadow:0 0 0 3px rgba(191,107,46,.12)}
+  .admin-form textarea{resize:vertical;min-height:46px;line-height:1.4}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:560px){.form-grid{grid-template-columns:1fr}}
+  .checks{display:flex;flex-wrap:wrap;gap:16px}
+  .checks label{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;
+    letter-spacing:0;text-transform:none;color:var(--ink);margin:0;cursor:pointer}
+  .checks input{width:17px;height:17px;accent-color:var(--sicak);cursor:pointer}
+
+  /* dynamic rows (steps + olcu) */
+  .row-edit{display:flex;gap:8px;align-items:flex-start;margin-bottom:8px}
+  .row-edit .grow{flex:1}
+  .row-edit input{width:100%;font-family:inherit;font-size:13.5px;padding:9px 11px;
+    border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--ink);outline:none}
+  .row-edit input:focus{border-color:var(--sicak)}
+  .row-edit .x{flex:0 0 auto;width:34px;height:36px;border-radius:9px;border:1px solid var(--line);
+    background:var(--card);color:var(--yemek);cursor:pointer;font-size:16px;line-height:1}
+  .row-edit .x:hover{background:rgba(176,74,54,.1)}
+  .step-num{flex:0 0 auto;width:28px;height:36px;display:flex;align-items:center;justify-content:center;
+    font-weight:700;color:var(--ink-soft);font-size:13px}
+  .olcu-grid{display:flex;gap:8px;margin-bottom:8px}
+  .olcu-grid input{flex:1;min-width:0}
+  .olcu-grid .x{flex:0 0 auto}
+  .col-head{display:flex;gap:8px;margin-bottom:6px;font-size:10.5px;font-weight:700;
+    letter-spacing:.4px;text-transform:uppercase;color:var(--ink-soft)}
+  .col-head span{flex:1}
+  .col-head .spacer{flex:0 0 34px}
+  .hint{font-size:11.5px;color:var(--ink-soft);margin-top:5px;line-height:1.4}
+  .form-actions{display:flex;gap:10px;margin-top:22px;position:sticky;bottom:0;
+    background:var(--paper);padding:14px 0 2px;border-top:1px solid var(--line)}
+
+  footer{max-width:1180px;margin:0 auto;padding:0 22px 50px;color:var(--ink-soft);font-size:12px;text-align:center}
+  footer span{font-family:'Fraunces',serif;font-style:italic}
+</style>
+</head>
+<body>
+<header>
+  <div class="head-inner">
+    <div class="brand">
+      <span class="mark">Caffè <em>Nero</em></span>
+      <span class="sub">Reçete Rehberi · Yiyecek &amp; İçecek Bilgi Haritası</span>
+      <span class="count-pill" id="countPill">—</span>
+      <button class="admin-btn" id="adminBtn" title="Reçete yönetim paneli">⚙ Yönetim</button>
+    </div>
+    <div class="search-wrap">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="search" type="text" placeholder="Tarif, malzeme veya hazırlanış ara… (örn. matcha, antep fıstığı, blender)" autocomplete="off" />
+    </div>
+    <div class="chip-row" id="catRow"></div>
+    <div class="chip-row group-row" id="groupRow"></div>
+  </div>
+</header>
+
+<main>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">
+    <div class="big">Sonuç bulunamadı</div>
+    <div>Aramanı değiştirmeyi veya filtreleri temizlemeyi dene.</div>
+  </div>
+</main>
+
+<footer>
+  Kaynak: Sıcak/Soğuk İçecek Reçeteleri · FY27 Matcha · Eğitim Bilgi Haritası · Rooibos Reçetesi · <span>mutfakta her gün taze.</span>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<!-- ---------- ADMIN PANEL ---------- -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-panel">
+    <div class="admin-head">
+      <h2 id="adminTitle">Reçete Yönetimi</h2>
+      <button class="closeb" id="adminClose">×</button>
+    </div>
+    <div class="admin-body" id="adminBody"></div>
+  </div>
+</div>
+<input type="file" id="importFile" accept="application/json,.json" style="display:none" />
+
+<script>
+const CATS = {
+  sicak:{label:"Sıcak İçecek", clr:"var(--sicak)"},
+  soguk:{label:"Soğuk İçecek", clr:"var(--soguk)"},
+  oz:{label:"Özler & Bazlar", clr:"var(--oz)"},
+  yemek:{label:"Yiyecek (Pişirme)", clr:"var(--yemek)"},
+};
+
+// ---------- RECIPE DATA (seed / varsayılan) ----------
+const SEED = [
+/* ===================== SICAK – ESPRESSO BAZLI ===================== */
+{c:"sicak",g:"Espresso Bazlı",n:"Americano",k:1,sut:0,buton:"4",
+ olcu:{tip:"srg",rows:[{b:"Espresso (shot)",s:"1",r:"2",g:"3"}]},
+ steps:["Cam/porselen fincanda: önce sıcak su konur, üzerine espresso çekilir.","Karton bardakta: sıcak su üzerine espresso shot bardağı yardımıyla dökülür."]},
+
+{c:"sicak",g:"Espresso Bazlı",n:"Flat White",k:1,sut:1,buton:"2",
+ olcu:{tip:"srg",rows:[{b:"Espresso (shot)",s:"—",r:"2",g:"—"}]},
+ steps:["İki sıkıştırma (tamp) yapıp 15 sn akış süresiyle kahvenin özü alınır.","İpeksi kıvamda 60°C'ye ısıtılmış süt eklenir.","Köpük kalınlığı 0,5 cm olmalı; altın bilezik ve beyaz disk oluşmalıdır.","Flat olacak şekilde servis edilir."]},
+
+{c:"sicak",g:"Espresso Bazlı",n:"Cortado",k:1,sut:1,buton:"2",
+ olcu:{tip:"srg",rows:[{b:"Espresso (shot)",s:"—",r:"1",g:"—"}]},
+ steps:["Single espresso çekilir (akış 20-22 sn, timer kullanın).","Süt 50°C'de kapatılır.","Köpük kalınlığı 0,5 cm olmalıdır."]},
+
+{c:"sicak",g:"Espresso Bazlı",n:"Latte",k:1,sut:1,buton:"4",
+ olcu:{tip:"srg",rows:[{b:"Espresso (shot)",s:"1",r:"2",g:"2"}]},
+ steps:["Boya göre espresso shot(lar)ı çekilir.","60°C'ye ısıtılmış süt eklenir.","Flat ve altın bilezik olacak şekilde servis edilir.","Köpük kalınlığı 1-1,5 cm olmalıdır."]},
+
+{c:"sicak",g:"Espresso Bazlı",n:"Cappuccino",k:1,sut:1,buton:"4",
+ olcu:{tip:"srg",rows:[{b:"Espresso (shot)",s:"1",r:"2",g:"2"}]},
+ steps:["1/3 espresso, 1/3 süt, 1/3 süt köpüğü oranıyla hazırlanır.","Bombe olacak şekilde doldurulur.","Üzerine çikolata tozu serpilerek servis edilir."]},
+
+{c:"sicak",g:"Espresso Bazlı",n:"Caramelatte",k:1,sut:1,buton:"4",
+ olcu:{tip:"srg",rows:[{b:"Espresso (shot)",s:"1",r:"2",g:"2"},{b:"Vanilya şurup",s:"1",r:"2",g:"3"},{b:"Krema",s:"var",r:"var",g:"var"}]},
+ steps:["Espresso çekilir, boya göre vanilya şurubu eklenir.","60°C süt ile latte formunda tamamlanır.","Üzerine krema ve 3 halka karamel sos dökülerek servis edilir."],
+ note:"Krema istenmezse flat servis edilir."},
+
+{c:"sicak",g:"Espresso Bazlı",n:"Caffè Mocha",k:1,sut:1,buton:"4",
+ olcu:{tip:"srg",rows:[{b:"Espresso (shot)",s:"1",r:"2",g:"2"},{b:"Çikolata",s:"2/3",r:"1 flat",g:"1 tepeleme"},{b:"Krema",s:"var",r:"var",g:"var"}]},
+ steps:["Boya göre çikolata tozu fincana eklenir.","Espresso çekilir ve çikolata eritilir.","60°C süt ile tamamlanır.","Üzerine krema ve çikolata tozu dökülerek servis edilir."],
+ note:"Krema istenmezse içecek bombe köpük olacak şekilde servis edilir."},
+
+{c:"sicak",g:"Espresso Bazlı",n:"White Chocolate Mocha",k:1,sut:1,buton:"4",
+ olcu:{tip:"srg",rows:[{b:"Espresso (shot)",s:"1",r:"2",g:"2"},{b:"Beyaz çikolata (WM)",s:"0,5",r:"1",g:"1"},{b:"Krema",s:"var",r:"var",g:"var"}]},
+ steps:["Boya göre beyaz çikolata (W.Mocha) sosu eklenir.","Espresso çekilir.","60°C süt ile tamamlanır.","Üzerine krema ve çikolata tozu dökülerek servis edilir."],
+ note:"Krema istenmezse içecek bombe köpük olacak şekilde servis edilir."},
+
+{c:"sicak",g:"Espresso Bazlı",n:"Praline Latte (Macadamia Nut)",k:1,sut:1,buton:"4",
+ olcu:{tip:"srg",rows:[{b:"Espresso (shot)",s:"1",r:"2",g:"2"},{b:"M.Nut şurup",s:"1",r:"2",g:"3"}]},
+ steps:["4 numaralı düğmeden shotlar fincana çekilir.","Bardak boyuna göre Macadamia Nut şurubu konur.","İki parmak süt eklenip karıştırıcı ile karıştırılır.","Süt ve köpükle tamamlanır.","Üzerine 3 halka karamel sos eklenir."]},
+
+{c:"sicak",g:"Espresso Bazlı",n:"Roasted Hazelnut Latte",k:1,sut:1,buton:"4",
+ olcu:{tip:"srg",rows:[{b:"Espresso (shot)",s:"1",r:"2",g:"2"},{b:"R.Hazelnut şurup",s:"1",r:"2",g:"3"}]},
+ steps:["4 numaralı düğmeden shotlar fincana çekilir.","Bardak boyuna göre Roasted Hazelnut şurubu konur.","İki parmak süt eklenip karıştırıcı ile karıştırılır.","Süt ve köpükle tamamlanır (flat ve bilezik oluşmalı)."]},
+
+{c:"sicak",g:"Espresso Bazlı",n:"Antep Fıstıklı Latte",k:1,sut:1,buton:"4",boy:"Sadece RG",
+ olcu:{tip:"srg",rows:[{b:"Espresso (shot)",s:"—",r:"2",g:"—"},{b:"Antep fıstığı sos",s:"—",r:"1",g:"—"},{b:"Antep fıstığı toz",s:"—",r:"1",g:"—"}]},
+ steps:["Espresso çekilir, antep fıstığı sosu eklenir.","60°C süt ile latte formunda tamamlanır (köpük 1-1,5 cm, flat + altın bilezik).","Üzerine toz antep fıstığı serpilir."],
+ note:"Sadece RG boy servis edilir."},
+
+{c:"sicak",g:"Espresso Bazlı",n:"Maple Spice Latte",k:1,sut:1,buton:"4",boy:"Sadece RG",
+ olcu:{tip:"srg",rows:[{b:"Espresso (shot)",s:"—",r:"2",g:"—"},{b:"Maple Spice şurup",s:"—",r:"2",g:"—"}]},
+ steps:["Espresso çekilir, Maple Spice şurubu eklenir.","60°C süt ile latte formunda tamamlanır (köpük 1-1,5 cm, flat + altın bilezik)."],
+ note:"Sadece RG boy servis edilir."},
+
+/* ===================== SICAK – SAF ESPRESSO ===================== */
+{c:"sicak",g:"Saf Espresso",n:"Espresso",k:1,sut:0,buton:"2",
+ olcu:{tip:"sd",rows:[{b:"Ölçü",sing:"1",doub:"—"}]},
+ steps:["Tek ölçü olacak şekilde 4 oz fincanda servis edilir.","Akış süresi 20-22 sn arasında olmalıdır."]},
+{c:"sicak",g:"Saf Espresso",n:"Double Espresso",k:1,sut:0,buton:"2",
+ olcu:{tip:"sd",rows:[{b:"Ölçü",sing:"—",doub:"2"}]},
+ steps:["İki ölçü olacak şekilde 4 oz fincanda servis edilir.","Akış süresi 20-22 sn arasında olmalıdır."]},
+{c:"sicak",g:"Saf Espresso",n:"Espresso Macchiato",k:1,sut:1,buton:"2",
+ olcu:{tip:"sd",rows:[{b:"Ölçü",sing:"1",doub:"—"}]},
+ steps:["Tek ölçü espresso çekilir.","Üzerine birkaç damla süt ve süt köpüğü eklenir.","4 oz fincanda servis edilir (akış 20-22 sn)."]},
+{c:"sicak",g:"Saf Espresso",n:"Double Espresso Macchiato",k:1,sut:1,buton:"2",
+ olcu:{tip:"sd",rows:[{b:"Ölçü",sing:"—",doub:"2"}]},
+ steps:["İki ölçü espresso çekilir.","Üzerine birkaç damla süt ve süt köpüğü eklenir.","Small fincanda servis edilir (akış 20-22 sn)."]},
+{c:"sicak",g:"Saf Espresso",n:"Espresso Conpanna",k:1,sut:0,buton:"2",
+ olcu:{tip:"sd",rows:[{b:"Ölçü",sing:"—",doub:"2"}]},
+ steps:["İki ölçü espresso çekilir.","Üzerine krema eklenir.","Small fincanda servis edilir."]},
+{c:"sicak",g:"Saf Espresso",n:"Ristretto",k:1,sut:0,buton:"2",
+ olcu:{tip:"sd",rows:[{b:"Ölçü",sing:"1",doub:"—"}]},
+ steps:["İki sıkıştırma yapılarak 15 sn akış süresiyle kahvenin özü alınır.","Tek ölçü olarak 4 oz fincanda servis edilir."]},
+
+/* ===================== SICAK – SÜTLÜ & ÖZEL ===================== */
+{c:"sicak",g:"Sütlü & Özel",n:"Hot Chocolate",k:0,sut:1,buton:"N/A",
+ olcu:{tip:"srg",rows:[{b:"Çikolata toz",s:"2 flat",r:"2,5 flat",g:"3 flat"},{b:"Krema",s:"var",r:"var",g:"var"}]},
+ steps:["Ölçülü süt pitcherına boya göre süt eklenir.","Pitchera boya göre çikolata tozu eklenir.","Çok az hava verilerek ısıtılır.","Bardağa dökülür.","İstenirse krema koyulur, üzerine zuma tozu dökülerek servis edilir."],
+ note:"Krema istenmezse içecek bombe köpük olacak şekilde servis edilir."},
+
+{c:"sicak",g:"Sütlü & Özel",n:"Milano",k:0,sut:1,buton:"N/A",boy:"Sadece Small",
+ steps:["Milano pitchera 8 oz olacak şekilde koyulur.","Köpürtmeden 50°C'ye kadar ısıtılır.","Bardağa dökülür.","İstenirse krema koyulur, üzerine çikolata tozu dökülerek servis edilir."],
+ note:"Sadece small boyda servis edilir."},
+
+{c:"sicak",g:"Sütlü & Özel",n:"Chai Latte",k:0,sut:1,buton:"N/A",
+ olcu:{tip:"srg",rows:[{b:"Chai toz",s:"1 flat",r:"2 flat",g:"2 flat"}]},
+ steps:["Fincana chai toz konur.","1 saniye sıcak su eklenip karıştırıcı ile çırpılır.","Fincanın yarısına süt ilave edilip tekrar karıştırılır.","İçecek flat olmalı; üzerine tarçın serpilerek servis edilir."]},
+
+{c:"sicak",g:"Sütlü & Özel",n:"Matcha Latte (Sıcak)",k:0,sut:1,buton:"N/A",link:"Matcha Bazı",
+ olcu:{tip:"srg",rows:[{b:"Matcha bazı",s:"shot 3.çizgi",r:"1 flat shot",g:"1 flat shot"}]},
+ steps:["Fincana shot bardağıyla ölçülendirilmiş matcha bazı koyulur.","Süt 60°C'ye ısıtılır (latte formunda, köpük 1-1,5 cm).","Süt, matcha bazının üzerine eklenir."]},
+
+{c:"sicak",g:"Türk Kahvesi",n:"Türk Kahvesi",k:1,sut:0,buton:"N/A",
+ steps:["Şeker tercihine göre eklenir: Az şekerli 0,5 · Orta 1 · Şekerli 1,5 · Çok şekerli 2 şeker.","Cezvede pişirilir.","Yanında 0,33 lt su ve lokum ikramıyla servis edilir."]},
+
+{c:"sicak",g:"Türk Kahvesi",n:"Sütlü Türk Kahvesi",k:1,sut:1,buton:"N/A",
+ steps:["Bardağı kadar soğuk süt küçük pitchere dökülür.","Süt 60°C'ye ısıtılır, termometre çıkarılır.","Pitchera Türk kahvesi eklenir (isteğe göre şeker).","Metal karıştırıcı ile karıştırılır, 1-2 dakika demlenmeye bırakılır.","Kendi bardağına dökülerek servis edilir."]},
+
+/* ===================== SOĞUK – ESPRESSO BAZLI ===================== */
+{c:"soguk",g:"Espresso Bazlı",n:"Iced Americano",k:1,sut:0,
+ steps:["CN Soğuk bardağı 1 numaraya kadar arıtma suyu ile doldurun.","4 numaradan 3 shot espresso ekleyin.","Bardağı silme buz ile doldurun.","Düz kapak takarak servis edin."]},
+{c:"soguk",g:"Espresso Bazlı",n:"Iced Latte",k:1,sut:1,
+ steps:["CN Soğuk bardağı 3 numaraya kadar süt doldurun.","4 numaradan 2 shot espresso ekleyin.","Bardağı silme buz ile doldurun.","Düz kapak takarak servis edin."]},
+{c:"soguk",g:"Espresso Bazlı",n:"Antep Fıstıklı Iced Latte",k:1,sut:1,
+ steps:["Soğuk bardağın 2. çizgisine kadar süt koyup blendera aktarın.","1 pompa Fo Salted Caramel + 1 pompa FO Pistachio sos ekleyin.","Blenderı 3 numaralı düğme ile çalıştırın.","Bardağı tam buz ile doldurun.","Blenderdaki karışımı bardağa dökün.","4 numaradan 2 shot espresso çekip ekleyin.","Serpme kabının orta deliğinden toz antep fıstığı serpin.","Düz kapak takarak servis edin."]},
+{c:"soguk",g:"Espresso Bazlı",n:"Maple Spice Iced Latte",k:1,sut:1,
+ steps:["Soğuk bardağın 2. çizgisine kadar süt koyup blendera aktarın.","1 pompa FO Maple sos + 2 pompa Monin Maple Spice şurup ekleyin.","Blenderı 3 numaralı düğme ile çalıştırın.","Bardağı tam buz ile doldurun.","Blenderdaki karışımı bardağa dökün.","4 numaradan 2 shot espresso çekip ekleyin.","Düz kapak takarak servis edin."]},
+{c:"soguk",g:"Espresso Bazlı",n:"Iced Caramelatte",k:1,sut:1,
+ steps:["CN Soğuk bardağı 3 numaraya kadar süt doldurun.","4 numaradan 2 shot espresso ekleyin.","Karışımı blendera koyun.","3 pump vanilya şurubu ekleyin.","Bardağı 5 numaraya kadar buz ile doldurup blendera ekleyin.","2 flat kaşık Frappe Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağa doldurun; üzerine krema ve salyangoz 3 drizzle karamel sos süsleme yapın.","Kubbe kapak ve pipet ile servis edin."]},
+{c:"soguk",g:"Espresso Bazlı",n:"Frappe Latte",k:1,sut:1,
+ steps:["CN Soğuk bardağı 3 numaraya kadar süt doldurun.","4 numaradan 2 shot espresso ekleyin.","Karışımı blendera koyun.","5 numaraya kadar buz doldurup blendera ekleyin.","2 flat kaşık Frappe Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağa doldurun, kubbe kapak takıp üzerini tamamlayın, pipet ile servis edin."]},
+{c:"soguk",g:"Espresso Bazlı",n:"Mocha Latte",k:1,sut:1,
+ steps:["CN Soğuk bardağı 3 numaraya kadar süt doldurun.","4 numaradan 2 shot espresso ekleyip blendera dökün.","5 numaraya kadar buz doldurup blendera ekleyin.","2 flat çikolata ekleyin.","2 flat kaşık Frappe Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağa doldurun; üzerine krema ve çikolata tozu ekleyin.","Kubbe kapak ve pipet ile servis edin."]},
+{c:"soguk",g:"Espresso Bazlı",n:"Iced White Chocolate Mocha",k:1,sut:1,
+ steps:["CN Soğuk bardağı 3 numaraya kadar süt doldurun.","4 numaradan 2 shot espresso ekleyip blendera dökün.","1 pump FO White Chocolate sos ekleyin.","5 numaraya kadar buz doldurup blendera ekleyin.","2 flat kaşık Frappe Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağa doldurun; üzerine krema ve çikolata tozu ekleyin.","Kubbe kapak ve pipet ile servis edin."]},
+{c:"soguk",g:"Espresso Bazlı",n:"Iced Caramel Frappe Latte",k:1,sut:1,
+ steps:["CN Soğuk bardağı 3 numaraya kadar süt doldurun.","4 numaradan 2 shot espresso ekleyin.","Karışımı blendera koyun.","3 pump karamel şurubu ekleyin.","5 numaraya kadar buz doldurup blendera ekleyin.","2 flat kaşık Frappe Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağa doldurun; üzerine krema ve salyangoz 3 drizzle karamel sos süsleme yapın.","Kubbe kapak ve pipet ile servis edin."]},
+{c:"soguk",g:"Espresso Bazlı",n:"Iced Chai Latte",k:0,sut:1,
+ steps:["CN Soğuk bardağa 3 numaraya kadar süt ekleyip blendera dökün.","3 numaraya kadar buz ekleyip blendera dökün.","2 flat kaşık Vanilya Powder ekleyin.","2 flat kaşık Chai Latte tozu ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağa doldurun, üzerine tarçın dökün.","Kubbe kapak takıp üzerini tamamlayın, pipet ile servis edin."]},
+
+/* ===================== SOĞUK – COLD BREW ===================== */
+{c:"soguk",g:"Cold Brew",n:"Cold Brew",k:1,sut:0,
+ steps:["CN Soğuk bardağı 3 numaraya kadar buz ile doldurun.","Üzerine Cold Brew ile bardağı silme doldurun.","Düz kapak takarak servis edin."]},
+{c:"soguk",g:"Cold Brew",n:"Cold Brew Latte",k:1,sut:1,
+ steps:["CN Soğuk bardağı 3 numaraya kadar buz ile doldurun.","Üzerine Cold Brew ile bardağın üst boğumuna kadar doldurun.","Kalan kısmı süt ile tamamlayın.","Düz kapak takarak servis edin."]},
+{c:"soguk",g:"Cold Brew",n:"Cold Brew Nitro",k:1,sut:0,
+ steps:["CN Soğuk bardağı silme Cold Brew Nitro ile doldurun.","Düz kapak takarak servis edin."],
+ note:"Buz veya süt ile servis edilemez."},
+
+/* ===================== SOĞUK – SHAKEN & ÖZEL ===================== */
+{c:"soguk",g:"Shaken & Özel",n:"Iced Flat White",k:1,sut:1,boy:"12 oz · RG tek boy",
+ steps:["2 numaradan 2 shot espresso çekin (2 tamp ve 15 sn).","Iced cappuccino jarına (yuvarlak bıçaklı) 8/9 parça buz ekleyin.","Üzerine çekilen espressoyu ekleyin.","Iced Cappuccino blenderını 3 numarada 7 sn çalıştırın.","Casablanca 12 oz cam / take away bardağa 5-6 adet buz ekleyin.","Nero logosuna kadar süt ekleyin.","Blenderdaki karışımı yavaşça bardağa ekleyip çift renk oluşturun.","Düz kapak takarak servis edin."]},
+{c:"soguk",g:"Shaken & Özel",n:"Freddo Espresso",k:1,sut:0,boy:"12 oz · RG tek boy",
+ steps:["12 oz Casablanca veya CN Soğuk bardağa 4 adet buz atın.","Shaker'a 6 adet buz atın.","2 numaradan 3 shot espresso çekip shaker'a dökün (şekerli isteniyorsa 2 esmer şeker ekleyip eritin).","Buz ile espresso shotları iyice sallayın — ne kadar çok sallarsanız o kadar köpük oluşur.","Shakerdaki karışımı bardağa döküp düz kapak ile servis edin."],
+ note:"Freddo Espresso: buz üstüne dökülen shotların shaker ile köpürtülüp buzlu bardağa aktarıldığı Yunan kahvesidir. İdeal köpük 3-4 cm. 3 shot ile hazırlanır; misafire şekerli/şekersiz tercihi sorulur."},
+{c:"soguk",g:"Shaken & Özel",n:"Iced Cappuccino",k:1,sut:1,
+ steps:["GR Iced bardağın Line 2'ye kadar light soğuk süt koyun.","Iced cappuccino jar'ına (yuvarlak bıçaklı) dökün.","No 1'de çalıştırıp ipeksi süt köpüğü oluşturun.","4 numaradan 2 shot espresso çekin.","Iced bardağı Line 5'e kadar buz ile doldurun, espressoyu buzun üzerine ekleyin.","Üzerine 1 pump vanilya şurubu ekleyin.","Blenderda yaptığınız süt köpüğünü dökün.","Kubbe kapak ve pipet ile servis edin."]},
+
+/* ===================== SOĞUK – FRAPPE CRÈME ===================== */
+{c:"soguk",g:"Frappe Crème",n:"White Chocolate & Strawberry Frappe Crème",k:0,sut:1,
+ steps:["CN Soğuk bardağı Line 2'ye kadar süt ile doldurup blendera boşaltın.","1 pump FO White Chocolate sos ekleyin.","1 pump Strawberry şurubu ekleyin.","Bardağı tam buz ile doldurup blendera aktarın.","2 flat Vanilla Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağın içini çilek sos ile süsleyin.","İçeceği doldurun; salyangoz 3 drizzle (çilek sos) süsleme yapın.","Kubbe kapak ve pipet ile servis edin."],
+ note:"Krema isteyen misafire krema üstü 3 drizzle (çilek sos) süsleme yapın."},
+{c:"soguk",g:"Frappe Crème",n:"Mango & Coconut Frappe Crème",k:0,sut:1,
+ steps:["CN Soğuk bardağı Line 2'ye kadar süt ile doldurup blendera boşaltın.","1 pump FO Coconut + 1 pump Krater Mango sos ekleyin.","Bardağı tam buz ile doldurup blendera aktarın.","Yarım kaşık hindistan cevizi tozu ekleyin.","2 flat Vanilla Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağın içini mango sos ile süsleyin.","İçeceği doldurun; salyangoz 3 drizzle (mango sos) süsleme yapın.","Kubbe kapak ve pipet ile servis edin."],
+ note:"Krema isteyen misafire krema üstü 3 drizzle (mango sos) süsleme yapın."},
+{c:"soguk",g:"Frappe Crème",n:"Salted Caramel Coffee Frappe Crème",k:1,sut:1,
+ steps:["CN Soğuk bardağı Line 2'ye kadar süt ile doldurup blendera boşaltın.","2 numaradan 2 shot espresso çekin.","1 pump Da Vinci Salted Caramel sos ekleyin.","Bardağı tam buz ile doldurup blendera aktarın.","2 flat Frappe Tozu ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağın içini Salted Caramel sos ile süsleyin.","İçeceği doldurun; salyangoz 3 drizzle (Salted Caramel sos) süsleme yapın.","Kubbe kapak ve pipet ile servis edin."],
+ note:"Kahve içerir. Krema isteyen misafire krema üstü 3 drizzle (Salted Caramel sos) süsleme yapın."},
+{c:"soguk",g:"Frappe Crème",n:"Chocolate & Shortbread Cookie Frappe Crème",k:0,sut:1,
+ steps:["CN Soğuk bardağı Line 2'ye kadar süt ile doldurup blendera boşaltın.","1 pump Da Vinci Chocolate sos ekleyin.","1 pump Fo Shortbread Cookie şurubu ekleyin.","Bardağı tam buz ile doldurup blendera aktarın.","2 flat Vanilla Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağın içini çikolata sos ile süsleyin.","İçeceği doldurun; salyangoz 3 drizzle (çikolata sos) süsleme yapın.","Kubbe kapak ve pipet ile servis edin."],
+ note:"Krema isteyen misafire krema üstü 3 drizzle (çikolata sos) süsleme yapın."},
+{c:"soguk",g:"Frappe Crème",n:"Antep Fıstıklı Frappe Crème",k:0,sut:1,
+ steps:["CN Soğuk bardağı Line 2'ye kadar süt ile doldurup blendera boşaltın.","1 pompa Fo Salted Caramel + 1 pompa FO Pistachio sos ekleyin.","Bardağı tam buz ile doldurup blendera aktarın.","2 flat Vanilla Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","İçeceği bardağa dökün.","Serpme kabının orta deliğinden toz antep fıstığı serpin.","Kubbe kapak ve pipet ile servis edin."],
+ note:"Krema isteyen misafire krema üstüne toz antep fıstığı dökülerek servis edilir."},
+{c:"soguk",g:"Frappe Crème",n:"Maple Spice Frappe Crème",k:0,sut:1,
+ steps:["CN Soğuk bardağı Line 2'ye kadar süt ile doldurup blendera boşaltın.","1 pompa FO Maple sos + 1 pompa Monin Maple Spice şurup ekleyin.","Bardağı tam buz ile doldurup blendera aktarın.","2 flat Vanilla Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağın içini Maple sos ile süsleyin.","İçeceği doldurun, üzerine tarçın dökün.","Kubbe kapak ve pipet ile servis edin."],
+ note:"Krema isteyen misafire krema üstüne tarçın dökülerek servis edilir."},
+
+/* ===================== SOĞUK – FRAPPE NERO / MILKSHAKE ===================== */
+{c:"soguk",g:"Frappe Nero",n:"Çilek Frappe Nero",k:0,sut:1,
+ steps:["CN Soğuk bardağı 4 numaraya kadar süt doldurun.","3 pump çilek şurubu ekleyin.","5 numaraya kadar buz doldurun.","Buz dolu bardağı blendera ekleyin.","2 flat kaşık Vanilya Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağa doldurun, kubbe kapak takıp üzerini tamamlayın, pipet ile servis edin."]},
+{c:"soguk",g:"Frappe Nero",n:"Çikolata Frappe Nero",k:0,sut:1,
+ steps:["CN Soğuk bardağı 4 numaraya kadar süt doldurun.","5 numaraya kadar buz doldurun.","Buz dolu bardağı blendera ekleyin.","2 flat kaşık çikolata tozu ekleyin.","2 flat kaşık Vanilya Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağa doldurun, kubbe kapak takıp üzerini tamamlayın, pipet ile servis edin."]},
+{c:"soguk",g:"Frappe Nero",n:"Muzlu Frappe Nero",k:0,sut:1,
+ steps:["CN Soğuk bardağı 4 numaraya kadar süt doldurun.","3 pump Monin Muz şurubu ekleyin.","5 numaraya kadar buz doldurun.","Buz dolu bardağı blendera ekleyin.","2 flat kaşık Vanilya Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağa doldurun, kubbe kapak takıp üzerini tamamlayın, pipet ile servis edin."]},
+
+/* ===================== SOĞUK – FRUIT BOOSTER ===================== */
+{c:"soguk",g:"Fruit Booster",n:"Mango & Passion Fruit Booster",k:0,sut:0,
+ steps:["CN Soğuk bardağı Line 5'e kadar meyve püresiyle doldurun.","Püreyi blendera dökün.","Bardağı tam dolu buz ile doldurun.","Buz dolu bardağı blendera dökün.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağa doldurun, kubbe kapak takıp üzerini tamamlayın, pipet ile servis edin."]},
+{c:"soguk",g:"Fruit Booster",n:"Strawberry & Banana Fruit Booster",k:0,sut:0,
+ steps:["CN Soğuk bardağı Line 5'e kadar meyve püresiyle doldurun.","Püreyi blendera dökün.","Bardağı tam dolu buz ile doldurun.","Buz dolu bardağı blendera dökün.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağa doldurun, kubbe kapak takıp üzerini tamamlayın, pipet ile servis edin."]},
+
+/* ===================== SOĞUK – ICED TEA & LİMONATA ===================== */
+{c:"soguk",g:"Iced Tea & Limonata",n:"Limonata",k:0,sut:0,link:"Limonata Özü",
+ steps:["CN Soğuk bardağı Line 3'e kadar buz doldurun.","Üzerine bardağı dolduracak şekilde limonata ile tamamlayın.","Shaker'a koyup 2 sağa 2 sola sallayın.","Shaker içeriğini CN Soğuk bardağa boşaltın.","Üzerine 1 dilim kuru limon ekleyip düz kapak ile servis edin."]},
+{c:"soguk",g:"Iced Tea & Limonata",n:"Lychee & Strawberry Lemonade",k:0,sut:0,
+ steps:["CN Soğuk bardağı Line 3'e kadar buz doldurun.","Üzerine bardak boğumuna kadar limonata ile tamamlayın.","Bardağı shaker'a aktarın.","1 pump Strawberry + 1 pump Lychee şurubu ekleyin.","Shaker'ı 2 sağa 2 sola sallayın.","İçeriği CN Soğuk bardağa boşaltın.","1 yemek kaşığı yaban mersini bubble tea ekleyin.","Kubbe kapak ile servis edin."],
+ note:"Özel Bubble Tea pipeti ile servis edin."},
+{c:"soguk",g:"Iced Tea & Limonata",n:"Fresh Lime & Mint Cooler",k:0,sut:0,link:"Fresh Lime & Mint Bazı",
+ steps:["CN Soğuk bardağı Line 3'e kadar buz doldurun.","Üzerine bardağı dolduracak Fresh Lime & Mint bazı ile tamamlayın.","Shaker'a koyup 2 sağa 2 sola sallayın.","İçeriği CN Soğuk bardağa boşaltın.","1 dilim kuru limon ekleyip düz kapak ile servis edin."]},
+{c:"soguk",g:"Iced Tea & Limonata",n:"Watermelon & Strawberry Mint Cooler",k:0,sut:0,link:"Watermelon & Mint Bazı",
+ steps:["CN Soğuk bardağı Line 3'e kadar buz doldurun.","Üzerine bardağı dolduracak Watermelon & Mint bazı ile tamamlayın.","Shaker'a koyup 5 adet kuru çilek ekleyin, 2 sağa 2 sola sallayın.","İçeriği CN Soğuk bardağa boşaltın.","Düz kapak ile servis edin."]},
+{c:"soguk",g:"Iced Tea & Limonata",n:"Hibiskus Çayı (Böğürtlen-Çilek-Portakal Kurusu)",k:0,sut:0,link:"Iced Tea Demleme",
+ steps:["CN Soğuk bardağı Line 1'e kadar limonata doldurun.","Line 3'e kadar buz doldurun.","Demlenmiş kırmızı iced tea, çift renk için buzun üzerinden dökülerek eklenir.","1 dilim kuru portakal ekleyip düz kapak ile servis edin."]},
+{c:"soguk",g:"Iced Tea & Limonata",n:"Mavi Kelebek Çayı (Yasemin Çiçeği)",k:0,sut:0,link:"Iced Tea Demleme",
+ steps:["CN Soğuk bardağı Line 1'e kadar limonata doldurun.","Line 3'e kadar buz doldurun.","Demlenmiş mavi iced tea, çift renk için buzun üzerinden dökülerek eklenir.","1 dilim kuru limon ekleyip düz kapak ile servis edin."]},
+{c:"soguk",g:"Iced Tea & Limonata",n:"Yeşil Çay (Bahçe Nanesi-Portakal Kabuğu)",k:0,sut:0,link:"Iced Tea Demleme",
+ steps:["CN Soğuk bardağı Line 1'e kadar limonata doldurun.","Line 3'e kadar buz doldurun.","Demlenmiş sarı iced tea, çift renk için buzun üzerinden dökülerek eklenir.","1 dilim kuru limon ekleyip düz kapak ile servis edin."]},
+{c:"soguk",g:"Iced Tea & Limonata",n:"Rooibos Çayı (Kurutulmuş Ananas-Kivi)",k:0,sut:0,link:"Iced Tea Demleme",
+ steps:["CN Soğuk bardağı Line 1'e kadar limonata doldurun.","Line 3'e kadar buz doldurun.","Demlenmiş turuncu iced tea, çift renk için buzun üzerinden dökülerek eklenir.","Büyüklüğüne göre 2-3 dilim kurutulmuş ananas ekleyip düz kapak ile servis edin."],
+ note:"Demleme: Tam batch 100 g çay / 4 lt su · 30 dk — Yarım batch 50 g çay / 2 lt su · 30 dk."},
+
+/* ===================== SOĞUK – MATCHA ===================== */
+{c:"soguk",g:"Matcha",n:"Iced Matcha Latte",k:0,sut:1,link:"Matcha Bazı",
+ steps:["CN Soğuk bardağa tam buz koyun.","Bardağın boğumuna kadar süt ekleyin.","Kalanı matcha bazı ile tamamlayın.","Flat kapak ile servis edin."]},
+{c:"soguk",g:"Matcha",n:"Iced Strawberry Matcha Latte",k:0,sut:1,link:"Matcha Bazı",
+ steps:["CN Soğuk bardağa 1 pump FO çilek püresi dökün.","Tam buz koyun.","Boğuma kadar süt ekleyin.","Kalanı matcha bazı ile tamamlayın.","Bombe kapak ve pipet ile servis edin."]},
+{c:"soguk",g:"Matcha",n:"Iced Mango Matcha Latte",k:0,sut:1,yeni:1,link:"Matcha Bazı",
+ steps:["CN Soğuk bardağa 1 pump Krater Mango sos dökün (30 ml · Da Vinci pompası uygun).","Tam buz koyun.","Boğuma kadar süt ekleyin.","Kalanı matcha bazı ile tamamlayın.","Bombe kapak ve pipet ile servis edin."]},
+{c:"soguk",g:"Matcha",n:"Iced Pistachio Matcha Latte",k:0,sut:1,yeni:1,link:"Matcha Bazı",
+ steps:["CN Soğuk bardağa 1 pump FO Pistachio sos dökün.","Tam buz koyun.","Boğuma kadar süt ekleyin.","Kalanı matcha bazı ile tamamlayın.","Bombe kapak ve pipet ile servis edin."]},
+{c:"soguk",g:"Matcha",n:"Matcha Coconut Cooler",k:0,sut:0,yeni:1,link:"Matcha Bazı",
+ steps:["CN Soğuk bardağa tam bardak buz koyun.","4. çizgiye kadar OKF Coconut Water ekleyin (buzdolabında muhafaza edilir).","2 pompa Fo Vanilya şurubu ekleyin.","İçecek, matcha bazı ile dalgalı görünüş yakalanacak şekilde dökülerek tamamlanır.","Flat kapak takılarak servis edin."]},
+{c:"soguk",g:"Matcha",n:"Matcha Frappe Latte",k:0,sut:1,link:"Matcha Bazı",
+ steps:["CN Soğuk bardağa 3 numaraya kadar süt doldurun.","5 numaraya gelene kadar matcha bazı ekleyin.","Blendera dökün.","5 numaraya kadar buz doldurup blendera dökün.","2 flat kaşık Vanilya Powder ekleyin.","Blenderı 4 numaralı düğme ile 25 sn çalıştırın.","Bardağa doldurun, kubbe kapak takıp üzerini tamamlayın, pipet ile servis edin."]},
+{c:"soguk",g:"Matcha",n:"Matcha Lemonade",k:0,sut:0,link:"Matcha Bazı",
+ steps:["CN Soğuk bardağı tam dolu buz ile doldurun.","5 numaraya gelene kadar limonata bazı ekleyin.","Matcha bazını buz üzerinden dökerek çift katman oluşturun.","Düz kapak ile servis edin."]},
+
+/* ===================== ÖZLER & BAZLAR ===================== */
+{c:"oz",g:"Bazlar",n:"Matcha Bazı",k:0,sut:0,
+ steps:["Blendera 400 ml distile su + 2 flat kaşık matcha tozu koyun.","Blenderı 1 numarada çalıştırın.","Karışımı ayaklı sürahiye boşaltın, üzerine 3 gün SKT tarihi atın."],
+ note:"Yüksek satışlı mağazalar 800 ml distile su + 4 flat kaşık ile hazırlayabilir. Buzdolabında muhafaza edilir; her kullanımdan önce ayaklı sürahide aşağı-yukarı hareketlerle karıştırılarak kullanıma hazır hale getirilir."},
+{c:"oz",g:"Bazlar",n:"Limonata Özü (Şişe Reçetesi)",k:0,sut:0,
+ steps:["CN Soğuk bardağı Line 5'e kadar limonata özü ile doldurun.","Limonata şişesine aktarın.","Şişenin geri kalanına aldığı kadar distile su ekleyin."]},
+{c:"oz",g:"Bazlar",n:"Fresh Lime & Mint Bazı (Şişe Reçetesi)",k:0,sut:0,
+ steps:["10 pump Monin Lime püre ekleyin.","3 pump Fo Mint şurubu ekleyin.","Şişenin geri kalanına aldığı kadar distile su ekleyin."]},
+{c:"oz",g:"Bazlar",n:"Watermelon & Mint Bazı (Şişe Reçetesi)",k:0,sut:0,
+ steps:["8 pump Fo karpuz meyveli sos ekleyin.","4 pump Fo karpuz şurubu ekleyin.","4 pump Fo mint şurubu ekleyin.","Şişenin kalanına 1 small bardak sıcak distile su ekleyip karışımın çözünmesini sağlayın.","Ardından distile su ile bazı tamamlayın."]},
+{c:"oz",g:"Demleme",n:"Iced Tea Demleme (Genel)",k:0,sut:0,
+ olcu:{tip:"batch",rows:[
+   {b:"Tam batch (4 lt)",miktar:"100 g çay / 4 lt su",sure:"30 dk"},
+   {b:"Yarım batch (2 lt)",miktar:"50 g çay / 2 lt su",sure:"30 dk"}]},
+ steps:["Çay, gramaja göre suyla buluşturulur.","30 dakika demlenir.","Soğutulup iced tea içeceklerinde kullanılır."],
+ note:"Renk kodları: Hibiskus → kırmızı · Mavi Kelebek → mavi · Yeşil Çay → sarı · Rooibos → turuncu."},
+
+/* ===================== YİYECEKLER – PİŞİRME ===================== */
+{c:"yemek",g:"Croissant & Çörek",n:"Croissant XL",k:0,sut:0,
+ olcu:{tip:"pisir",rows:[{b:"Pişirme",derece:"185°C",sure:"15 dk",not:"Birlikte pişirilebilir"}]},
+ steps:["Donuktan çıkarıp tepsiye dizin.","15 dk dışarıda dinlendirin.","185°C fırında 15 dk pişirin."]},
+{c:"yemek",g:"Croissant & Çörek",n:"Croissant Çikolata",k:0,sut:0,
+ olcu:{tip:"pisir",rows:[{b:"Pişirme",derece:"185°C",sure:"15 dk",not:"Birlikte pişirilebilir"}]},
+ steps:["Donuktan çıkarıp tepsiye dizin.","15 dk dışarıda dinlendirin.","185°C fırında 15 dk pişirin."]},
+{c:"yemek",g:"Croissant & Çörek",n:"Mini Üzümlü Çörek",k:0,sut:0,
+ olcu:{tip:"pisir",rows:[{b:"Pişirme",derece:"185°C",sure:"15 dk",not:"Birlikte pişirilebilir"}]},
+ steps:["Donuktan çıkarıp tepsiye dizin.","15 dk dışarıda dinlendirin.","185°C fırında 15 dk pişirin."]},
+{c:"yemek",g:"Poğaça & Açma",n:"Annemin Poğaçası",k:0,sut:0,
+ olcu:{tip:"pisir",rows:[{b:"Pişirme",derece:"170°C",sure:"6 dk",not:"Tek pişirilir"}]},
+ steps:["Fırını 180°C'ye önden ısıtın.","1 gün önceden donuktan çıkarılmış poğaçayı tepsiye dizin.","170°C'de 6 dk pişirin."]},
+{c:"yemek",g:"Poğaça & Açma",n:"Siyez Unlu Yulaflı Kuru Domatesli Poğaça",k:0,sut:0,
+ olcu:{tip:"pisir",rows:[{b:"Pişirme",derece:"170°C",sure:"4 dk",not:"Tek pişirilir"}]},
+ steps:["Fırını 180°C'ye önden ısıtın.","1 gün önceden donuktan çıkarılmış poğaçayı tepsiye dizin.","170°C'de 4 dk pişirin."]},
+{c:"yemek",g:"Poğaça & Açma",n:"Mini Dereotlu Peynirli Poğaça",k:0,sut:0,
+ olcu:{tip:"pisir",rows:[{b:"Pişirme",derece:"175°C",sure:"15 dk",not:"Tek pişirilir"}]},
+ steps:["Fırını 180°C'ye önden ısıtın.","Donuktan çıkarılmış poğaçayı tepsiye dizin.","175°C'de 15 dk, güneş yanığı renk alana kadar pişirin."]},
+{c:"yemek",g:"Poğaça & Açma",n:"Zeytinli Açma",k:0,sut:0,
+ olcu:{tip:"pisir",rows:[{b:"Pişirme",derece:"180°C",sure:"5 dk",not:"Tek pişirilir"}]},
+ steps:["Fırını 180°C'ye önden ısıtın.","Donuktan çıkarılmış açmayı tepsiye dizin.","180°C'de 5 dk pişirin."]},
+{c:"yemek",g:"Tuzlu",n:"Peynirli Kare Pide",k:0,sut:0,
+ olcu:{tip:"pisir",rows:[{b:"Pişirme",derece:"190°C",sure:"4 dk",not:"Birlikte pişirilebilir"}]},
+ steps:["Fırını 190°C'ye önden ısıtın.","1 gün önceden donuktan çıkarılmış ürünü tepsiye dizin.","190°C'de 4 dk pişirin."]},
+{c:"yemek",g:"Tuzlu",n:"Sausage Roll",k:0,sut:0,
+ olcu:{tip:"pisir",rows:[{b:"Pişirme",derece:"190°C",sure:"4 dk",not:"Birlikte pişirilebilir"}]},
+ steps:["Fırını 190°C'ye önden ısıtın.","1 gün önceden donuktan çıkarılmış ürünü tepsiye dizin.","190°C'de 4 dk pişirin."]},
+];
+
+// ---------- STATE ----------
+let curCat = "all";
+let curGroup = "all";
+let curSearch = "";
+
+const grid = document.getElementById('grid');
+const empty = document.getElementById('empty');
+const catRow = document.getElementById('catRow');
+const groupRow = document.getElementById('groupRow');
+const countPill = document.getElementById('countPill');
+const searchEl = document.getElementById('search');
+const overlay = document.getElementById('overlay');
+const sheet = document.getElementById('sheet');
+
+// ---------- DATA LAYER (localStorage + paylaşımlı sunucu / Netlify Blobs) ----------
+const LS_KEY = "nero_recipes_v1";
+const API = "/.netlify/functions/recipes";
+let adminPw = "";       // sunucuda doğrulanmış şifre — oturum boyunca bellekte tutulur
+let serverOn = false;   // sunucu fonksiyonu erişilebilir mi
+
+function cloneSeed(){ return JSON.parse(JSON.stringify(SEED)); }
+function cleanData(){ return R.map(({id,...rest})=>rest); }
+function loadRecipes(){
+  try{ const s = localStorage.getItem(LS_KEY); return s ? JSON.parse(s) : cloneSeed(); }
+  catch(e){ return cloneSeed(); }
+}
+function saveLocal(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify(cleanData())); }
+  catch(e){ /* kota dolu olabilir, sessizce geç */ }
+}
+// Değişikliği herkes için sunucuya yaz (yalnız panelde giriş yapıldıysa).
+async function pushToServer(){
+  if(!adminPw) return false;
+  setStatus('wait','Kaydediliyor…');
+  try{
+    const res = await fetch(API, {
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body: JSON.stringify({ password: adminPw, recipes: cleanData() })
+    });
+    if(res.status===401){ setStatus('err','Şifre sunucuda reddedildi'); return false; }
+    if(!res.ok){ setStatus('err','Sunucuya kaydedilemedi (yalnız bu cihaz)'); return false; }
+    serverOn = true; setStatus('ok','Herkese kaydedildi ✓'); return true;
+  }catch(e){ setStatus('err','Sunucuya ulaşılamadı (yalnız bu cihaz)'); return false; }
+}
+// Her kayıt: önce yerel (anında), sonra giriş yapıldıysa herkese.
+function saveRecipes(){ saveLocal(); pushToServer(); }
+function reindex(){ R.forEach((r,i)=>r.id=i); }
+
+let R = loadRecipes();
+reindex();
+
+// ----- senkron durum göstergesi (toast) -----
+(function(){
+  const st = document.createElement('style');
+  st.textContent = '.sync-status{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(20px);background:#222;color:#fff;padding:9px 16px;border-radius:999px;font-size:13px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.25s;z-index:9999;max-width:90vw;text-align:center}.sync-status.show{opacity:1;transform:translateX(-50%) translateY(0)}.sync-status.ok{background:#1f7a45}.sync-status.err{background:#b23a3a}.sync-status.wait{background:#555}';
+  document.head.appendChild(st);
+})();
+const statusEl = document.createElement('div');
+statusEl.className = 'sync-status';
+document.body.appendChild(statusEl);
+let statusTimer;
+function setStatus(kind, msg){
+  statusEl.textContent = msg;
+  statusEl.className = 'sync-status show ' + kind;
+  clearTimeout(statusTimer);
+  if(kind!=='wait') statusTimer = setTimeout(()=>{ statusEl.className = 'sync-status ' + kind; }, 2800);
+}
+
+// Açılışta paylaşımlı kopyayı sunucudan çek; yoksa yerel/SEED ile devam.
+async function syncFromServer(){
+  try{
+    const res = await fetch(API, {cache:'no-store'});
+    if(!res.ok) return;
+    const data = await res.json();
+    serverOn = true;
+    if(Array.isArray(data.recipes) && data.recipes.length){
+      R = data.recipes; reindex(); saveLocal();
+      buildCats(); buildGroups(); render();
+      if(adminOverlay.classList.contains('open')) renderAdminList();
+    }
+  }catch(e){ /* sunucu yok / çevrimdışı — yerel kopya ile devam */ }
+}
+
+// ---------- CATEGORY CHIPS ----------
+function buildCats(){
+  const items = [{key:"all",label:"Tümü",clr:"var(--ink)"}];
+  Object.keys(CATS).forEach(k=>items.push({key:k,label:CATS[k].label,clr:CATS[k].clr}));
+  items.push({key:"yeni",label:"Yeni FY27",clr:"var(--yeni)"});
+  catRow.innerHTML = items.map(it=>`
+    <button class="chip ${it.key===curCat?'active':''}" data-cat="${it.key}">
+      <span class="dot" style="background:${it.clr}"></span>${it.label}
+    </button>`).join('');
+  catRow.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+    curCat=c.dataset.cat;curGroup="all";buildCats();buildGroups();render();
+  });
+}
+
+// ---------- GROUP CHIPS ----------
+function buildGroups(){
+  let pool = R;
+  if(curCat==="yeni") pool = R.filter(r=>r.yeni);
+  else if(curCat!=="all") pool = R.filter(r=>r.c===curCat);
+  const groups = [...new Set(pool.map(r=>r.g))];
+  if(groups.length<=1 && curCat==="all"){ groupRow.innerHTML=""; return; }
+  const items = [`<button class="chip ${curGroup==='all'?'active':''}" data-grp="all">Tüm gruplar</button>`]
+    .concat(groups.map(g=>`<button class="chip ${curGroup===g?'active':''}" data-grp="${g}">${g}</button>`));
+  groupRow.innerHTML = items.join('');
+  groupRow.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+    curGroup=c.dataset.grp;buildGroups();render();
+  });
+}
+
+// ---------- FILTER + RENDER ----------
+function matches(r){
+  if(curCat==="yeni" && !r.yeni) return false;
+  if(curCat!=="all" && curCat!=="yeni" && r.c!==curCat) return false;
+  if(curGroup!=="all" && r.g!==curGroup) return false;
+  if(curSearch){
+    const hay=(r.n+" "+r.g+" "+CATS[r.c].label+" "+r.steps.join(" ")+" "+(r.note||"")).toLocaleLowerCase('tr');
+    if(!hay.includes(curSearch)) return false;
+  }
+  return true;
+}
+
+function render(){
+  const list = R.filter(matches);
+  countPill.textContent = `${list.length} tarif`;
+  if(!list.length){ grid.innerHTML=""; empty.style.display="block"; return; }
+  empty.style.display="none";
+  grid.innerHTML = list.map(r=>{
+    const clr = CATS[r.c].clr;
+    const tag = r.k ? `<span class="tag k">Kahveli</span>` : (r.c==='yemek'?'':`<span class="tag nk">Kahvesiz</span>`);
+    const sut = r.sut ? `<span class="tag">Sütlü</span>` : '';
+    return `<button class="card" style="--catclr:${clr}" data-id="${r.id}">
+      ${r.yeni?'<span class="badge-yeni">Yeni</span>':''}
+      <div class="grp">${r.g}</div>
+      <h3>${r.n}</h3>
+      <div class="meta">${tag}${sut}${r.boy?`<span class="tag">${r.boy}</span>`:''}</div>
+    </button>`;
+  }).join('');
+  grid.querySelectorAll('.card').forEach(c=>c.onclick=()=>openSheet(+c.dataset.id));
+}
+
+// ---------- DETAIL SHEET ----------
+function olcuTable(o){
+  if(!o) return '';
+  if(o.tip==="srg"){
+    const has = k=>o.rows.some(r=>r[k] && r[k]!=="—");
+    const cols = ['s','r','g'].filter(has);
+    const head = `<tr><th>Bileşen</th>${cols.map(c=>`<th>${c.toUpperCase()}</th>`).join('')}</tr>`;
+    const body = o.rows.map(r=>`<tr><td>${r.b}</td>${cols.map(c=>`<td class="${(!r[c]||r[c]==='—')?'muted':''}">${r[c]&&r[c]!=='var'?r[c]:(r[c]==='var'?'isteğe bağlı':'—')}</td>`).join('')}</tr>`).join('');
+    return `<table class="olcu">${head}${body}</table>`;
+  }
+  if(o.tip==="sd"){
+    return `<table class="olcu"><tr><th>Bileşen</th><th>Single</th><th>Double</th></tr>${o.rows.map(r=>`<tr><td>${r.b}</td><td class="${r.sing==='—'?'muted':''}">${r.sing}</td><td class="${r.doub==='—'?'muted':''}">${r.doub}</td></tr>`).join('')}</table>`;
+  }
+  if(o.tip==="batch"){
+    return `<table class="olcu"><tr><th>Batch</th><th>Gramaj</th><th>Süre</th></tr>${o.rows.map(r=>`<tr><td>${r.b}</td><td>${r.miktar}</td><td>${r.sure}</td></tr>`).join('')}</table>`;
+  }
+  if(o.tip==="pisir"){
+    return `<table class="olcu"><tr><th>Derece</th><th>Süre</th><th>Not</th></tr>${o.rows.map(r=>`<tr><td>${r.derece}</td><td>${r.sure}</td><td style="text-align:left">${r.not}</td></tr>`).join('')}</table>`;
+  }
+  return '';
+}
+
+function openSheet(id){
+  const r = R[id];
+  const clr = CATS[r.c].clr;
+  const linked = r.link ? R.find(x=>x.n===r.link) : null;
+  const pills = [];
+  pills.push(`<span class="pill">${CATS[r.c].label}</span>`);
+  if(r.buton && r.buton!=="N/A") pills.push(`<span class="pill">Buton <b>${r.buton}</b></span>`);
+  if(r.k) pills.push(`<span class="pill" style="border-color:var(--sicak);color:#8a4a18">Kahveli</span>`);
+  if(r.sut) pills.push(`<span class="pill">Sütlü</span>`);
+  if(r.boy) pills.push(`<span class="pill">${r.boy}</span>`);
+
+  const olcuHTML = r.olcu ? `<div class="sec-title">${r.olcu.tip==='pisir'?'Pişirme Bilgisi':'Ölçü Tablosu'}</div>${olcuTable(r.olcu)}` : '';
+
+  sheet.innerHTML = `
+    <div class="sheet-head" style="--catclr:${clr}">
+      <button class="closeb" id="closeb">×</button>
+      <div class="grp">${r.g}</div>
+      <h2>${r.n}</h2>
+    </div>
+    <div class="sheet-body" style="--catclr:${clr}">
+      <div class="meta-row">${pills.join('')}</div>
+      ${olcuHTML}
+      <div class="sec-title">Hazırlanışı</div>
+      <ol class="steps">${r.steps.map(s=>`<li>${s}</li>`).join('')}</ol>
+      ${r.note?`<div class="note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><div>${r.note}</div></div>`:''}
+      ${linked?`<div class="linked"><button data-link="${linked.id}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--oz)" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg><span>İlgili öz: <b>${linked.n}</b> — hazırlanışını gör</span></button></div>`:''}
+    </div>`;
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+  document.getElementById('closeb').onclick=closeSheet;
+  const lb = sheet.querySelector('[data-link]');
+  if(lb) lb.onclick=()=>openSheet(+lb.dataset.link);
+}
+function closeSheet(){ overlay.classList.remove('open'); document.body.style.overflow=''; }
+overlay.onclick=e=>{ if(e.target===overlay) closeSheet(); };
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeSheet(); });
+
+// ---------- SEARCH ----------
+let t;
+searchEl.oninput=()=>{ clearTimeout(t); t=setTimeout(()=>{ curSearch=searchEl.value.trim().toLocaleLowerCase('tr'); render(); },120); };
+
+// ---------- ADMIN PANEL ----------
+const ADMIN_PW = "nero2026";
+const adminOverlay = document.getElementById('adminOverlay');
+const adminBody = document.getElementById('adminBody');
+const adminTitle = document.getElementById('adminTitle');
+const importFile = document.getElementById('importFile');
+
+const OLCU_TYPES = {
+  srg:   {label:"S / R / G ölçü",          cols:[{k:"b",h:"Bileşen"},{k:"s",h:"S"},{k:"r",h:"R"},{k:"g",h:"G"}]},
+  sd:    {label:"Single / Double",          cols:[{k:"b",h:"Bileşen"},{k:"sing",h:"Single"},{k:"doub",h:"Double"}]},
+  batch: {label:"Batch / Gramaj / Süre",    cols:[{k:"b",h:"Batch"},{k:"miktar",h:"Gramaj"},{k:"sure",h:"Süre"}]},
+  pisir: {label:"Pişirme (Derece/Süre/Not)",cols:[{k:"derece",h:"Derece"},{k:"sure",h:"Süre"},{k:"not",h:"Not"}]},
+};
+
+let adminSearch = "";
+
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+async function openAdmin(){
+  if(!adminPw){
+    const pw = prompt("Yönetim paneli şifresi:");
+    if(pw===null) return;
+    let okPw = false;
+    try{
+      const res = await fetch(API, {method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({action:'auth', password: pw})});
+      if(res.ok){ okPw = true; serverOn = true; }
+      else if(res.status===401){ okPw = false; serverOn = true; }
+      else { okPw = (pw===ADMIN_PW); }      // sunucu hatası → yerel yedeğe düş
+    }catch(e){ okPw = (pw===ADMIN_PW); }     // sunucu yok → yerel yedeğe düş
+    if(!okPw){ alert("Hatalı şifre."); return; }
+    adminPw = pw;
+  }
+  renderAdminList();
+  adminOverlay.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeAdmin(){ adminOverlay.classList.remove('open'); document.body.style.overflow=''; }
+
+document.getElementById('adminBtn').onclick = openAdmin;
+document.getElementById('adminClose').onclick = closeAdmin;
+adminOverlay.onclick = e=>{ if(e.target===adminOverlay) closeAdmin(); };
+
+// ----- LIST VIEW -----
+function renderAdminList(){
+  adminTitle.textContent = "Reçete Yönetimi";
+  adminBody.innerHTML = `
+    <div class="admin-tools">
+      <button class="btn primary" id="addBtn">＋ Yeni İçecek</button>
+      <button class="btn" id="exportBtn">⬇ Dışa Aktar</button>
+      <button class="btn" id="importBtn">⬆ İçe Aktar</button>
+      <button class="btn danger" id="resetBtn">↺ Varsayılana Dön</button>
+    </div>
+    <input class="admin-search" id="adminSearchEl" type="text" placeholder="Reçete ara…" />
+    <div id="adminRows"></div>`;
+  document.getElementById('addBtn').onclick = ()=>renderAdminForm(null);
+  document.getElementById('exportBtn').onclick = exportJSON;
+  document.getElementById('importBtn').onclick = ()=>importFile.click();
+  document.getElementById('resetBtn').onclick = resetData;
+  const se = document.getElementById('adminSearchEl');
+  se.value = adminSearch;
+  se.oninput = ()=>{ adminSearch = se.value; renderAdminRows(); };
+  renderAdminRows();
+}
+
+function renderAdminRows(){
+  const rowsEl = document.getElementById('adminRows');
+  const q = adminSearch.trim().toLocaleLowerCase('tr');
+  const list = R.filter(r=> !q || (r.n+" "+r.g).toLocaleLowerCase('tr').includes(q));
+  if(!list.length){ rowsEl.innerHTML = `<div class="admin-empty">Sonuç bulunamadı.</div>`; return; }
+  let html='';
+  Object.keys(CATS).forEach(catKey=>{
+    const items = list.filter(r=>r.c===catKey);
+    if(!items.length) return;
+    html += `<div class="admin-cat-title" style="--catclr:${CATS[catKey].clr}">${CATS[catKey].label} · ${items.length}</div>`;
+    html += items.map(r=>`
+      <div class="admin-row">
+        <div class="info">
+          <div class="nm">${esc(r.n)}${r.yeni?' ·<span style="color:var(--yeni)"> Yeni</span>':''}</div>
+          <div class="gr">${esc(r.g)}${r.k?' · Kahveli':''}${r.sut?' · Sütlü':''}</div>
+        </div>
+        <div class="acts">
+          <button class="btn sm" data-edit="${r.id}">Düzenle</button>
+          <button class="btn sm danger" data-del="${r.id}">Sil</button>
+        </div>
+      </div>`).join('');
+  });
+  rowsEl.innerHTML = html;
+  rowsEl.querySelectorAll('[data-edit]').forEach(b=> b.onclick=()=>renderAdminForm(+b.dataset.edit));
+  rowsEl.querySelectorAll('[data-del]').forEach(b=> b.onclick=()=>delRecipe(+b.dataset.del));
+}
+
+function delRecipe(id){
+  const r=R.find(x=>x.id===id); if(!r) return;
+  if(!confirm(`"${r.n}" reçetesi silinsin mi? Bu işlem geri alınamaz.`)) return;
+  R = R.filter(x=>x.id!==id);
+  reindex(); saveRecipes(); render(); buildGroups();
+  renderAdminRows();
+}
+
+// ----- FORM VIEW -----
+function renderAdminForm(id){
+  const editing = id!=null;
+  const r = editing ? R.find(x=>x.id===id) : {c:"sicak",g:"",n:"",k:0,sut:0,steps:[""]};
+  adminTitle.textContent = editing ? "Reçete Düzenle" : "Yeni İçecek";
+
+  const groups = [...new Set(R.map(x=>x.g))].sort((a,b)=>a.localeCompare(b,'tr'));
+  const names = R.filter(x=> !editing || x.id!==id).map(x=>x.n).sort((a,b)=>a.localeCompare(b,'tr'));
+  const curTip = r.olcu ? r.olcu.tip : "";
+
+  adminBody.innerHTML = `
+    <form class="admin-form" id="recipeForm" autocomplete="off">
+      <div class="form-grid">
+        <div class="field">
+          <label>Kategori</label>
+          <select id="f_c">${Object.keys(CATS).map(k=>`<option value="${k}" ${k===r.c?'selected':''}>${CATS[k].label}</option>`).join('')}</select>
+        </div>
+        <div class="field">
+          <label>Grup / Alt başlık</label>
+          <input type="text" id="f_g" list="groupList" value="${esc(r.g)}" placeholder="örn. Espresso Bazlı" />
+          <datalist id="groupList">${groups.map(g=>`<option value="${esc(g)}"></option>`).join('')}</datalist>
+        </div>
+      </div>
+      <div class="field">
+        <label>İsim</label>
+        <input type="text" id="f_n" value="${esc(r.n)}" placeholder="İçecek / yiyecek adı" />
+      </div>
+      <div class="field">
+        <label>Özellikler</label>
+        <div class="checks">
+          <label><input type="checkbox" id="f_k" ${r.k?'checked':''}> Kahveli</label>
+          <label><input type="checkbox" id="f_sut" ${r.sut?'checked':''}> Sütlü</label>
+          <label><input type="checkbox" id="f_yeni" ${r.yeni?'checked':''}> Yeni FY27</label>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="field">
+          <label>Buton no (opsiyonel)</label>
+          <input type="text" id="f_buton" value="${esc(r.buton||'')}" placeholder="örn. 4 veya N/A" />
+        </div>
+        <div class="field">
+          <label>Boy kısıtı (opsiyonel)</label>
+          <input type="text" id="f_boy" value="${esc(r.boy||'')}" placeholder="örn. Sadece RG" />
+        </div>
+      </div>
+      <div class="field">
+        <label>İlgili reçete — öz/baz linki (opsiyonel)</label>
+        <select id="f_link"><option value="">— Yok —</option>${names.map(n=>`<option value="${esc(n)}" ${r.link===n?'selected':''}>${esc(n)}</option>`).join('')}</select>
+      </div>
+      <div class="field">
+        <label>Hazırlanış Adımları</label>
+        <div id="stepsWrap"></div>
+        <button type="button" class="btn sm" id="addStep">＋ Adım Ekle</button>
+      </div>
+      <div class="field">
+        <label>Ölçü / Pişirme Tablosu (opsiyonel)</label>
+        <select id="f_tip">
+          <option value="">— Yok —</option>
+          ${Object.keys(OLCU_TYPES).map(k=>`<option value="${k}" ${k===curTip?'selected':''}>${OLCU_TYPES[k].label}</option>`).join('')}
+        </select>
+        <div id="olcuWrap" style="margin-top:12px"></div>
+      </div>
+      <div class="field">
+        <label>Not (opsiyonel)</label>
+        <textarea id="f_note" placeholder="Özel not…">${esc(r.note||'')}</textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn primary">Kaydet</button>
+        <button type="button" class="btn" id="cancelBtn">İptal</button>
+      </div>
+    </form>`;
+
+  // --- steps ---
+  const stepsWrap = document.getElementById('stepsWrap');
+  function renumberSteps(){ stepsWrap.querySelectorAll('.row-edit').forEach((d,i)=> d.querySelector('.step-num').textContent=(i+1)+'.'); }
+  function addStepRow(val){
+    const div=document.createElement('div'); div.className='row-edit';
+    div.innerHTML=`<div class="step-num"></div><div class="grow"><input type="text" class="step-input" value="${esc(val||'')}" placeholder="Adımı yazın…"></div><button type="button" class="x" title="Adımı sil">×</button>`;
+    div.querySelector('.x').onclick=()=>{ div.remove(); renumberSteps(); };
+    stepsWrap.appendChild(div); renumberSteps();
+  }
+  ((r.steps&&r.steps.length)?r.steps:['']).forEach(s=>addStepRow(s));
+  document.getElementById('addStep').onclick=()=>addStepRow('');
+
+  // --- olcu table ---
+  const tipSel=document.getElementById('f_tip');
+  const olcuWrap=document.getElementById('olcuWrap');
+  function buildOlcu(tip, rows){
+    olcuWrap.innerHTML='';
+    if(!tip) return;
+    const cfg=OLCU_TYPES[tip];
+    const head=document.createElement('div'); head.className='col-head';
+    head.innerHTML=cfg.cols.map(c=>`<span>${c.h}</span>`).join('')+`<span class="spacer"></span>`;
+    olcuWrap.appendChild(head);
+    const body=document.createElement('div'); body.id='olcuRows'; olcuWrap.appendChild(body);
+    function addOlcuRow(rowData){
+      const div=document.createElement('div'); div.className='olcu-grid';
+      div.innerHTML=cfg.cols.map(c=>`<input type="text" data-k="${c.k}" value="${esc(rowData?rowData[c.k]:'')}" placeholder="${c.h}">`).join('')+`<button type="button" class="x" title="Satırı sil">×</button>`;
+      div.querySelector('.x').onclick=()=>div.remove();
+      body.appendChild(div);
+    }
+    ((rows&&rows.length)?rows:[null]).forEach(addOlcuRow);
+    const add=document.createElement('button'); add.type='button'; add.className='btn sm'; add.style.marginTop='4px'; add.textContent='＋ Satır Ekle';
+    add.onclick=()=>addOlcuRow(null); olcuWrap.appendChild(add);
+    if(tip==='srg'){ const h=document.createElement('div'); h.className='hint'; h.textContent='İpucu: boş hücre için "—", isteğe bağlı için "var" yazın.'; olcuWrap.appendChild(h); }
+  }
+  buildOlcu(curTip, r.olcu?r.olcu.rows:null);
+  tipSel.onchange=()=>buildOlcu(tipSel.value, null);
+
+  document.getElementById('cancelBtn').onclick=()=>renderAdminList();
+  document.getElementById('recipeForm').onsubmit=e=>{ e.preventDefault(); saveForm(id); };
+}
+
+function saveForm(id){
+  const editing = id!=null;
+  const n=document.getElementById('f_n').value.trim();
+  const g=document.getElementById('f_g').value.trim();
+  if(!n){ alert("İsim gerekli."); return; }
+  if(!g){ alert("Grup / alt başlık gerekli."); return; }
+  const steps=[...document.querySelectorAll('.step-input')].map(i=>i.value.trim()).filter(Boolean);
+  if(!steps.length){ alert("En az bir hazırlanış adımı girin."); return; }
+
+  const obj={ c:document.getElementById('f_c').value, g, n,
+    k:document.getElementById('f_k').checked?1:0,
+    sut:document.getElementById('f_sut').checked?1:0,
+    steps };
+  if(document.getElementById('f_yeni').checked) obj.yeni=1;
+  const buton=document.getElementById('f_buton').value.trim(); if(buton) obj.buton=buton;
+  const boy=document.getElementById('f_boy').value.trim(); if(boy) obj.boy=boy;
+  const link=document.getElementById('f_link').value; if(link) obj.link=link;
+  const note=document.getElementById('f_note').value.trim(); if(note) obj.note=note;
+
+  const tip=document.getElementById('f_tip').value;
+  if(tip){
+    const rows=[...document.querySelectorAll('#olcuRows .olcu-grid')].map(div=>{
+      const o={}; div.querySelectorAll('input').forEach(inp=>{ o[inp.dataset.k]=inp.value.trim(); }); return o;
+    }).filter(o=> Object.values(o).some(v=>v));
+    if(rows.length) obj.olcu={tip, rows};
+  }
+
+  if(editing){ const idx=R.findIndex(x=>x.id===id); R[idx]=obj; }
+  else { R.push(obj); }
+  reindex(); saveRecipes(); buildGroups(); render();
+  renderAdminList();
+}
+
+// ----- EXPORT / IMPORT / RESET -----
+function exportJSON(){
+  const data=JSON.stringify(R.map(({id,...rest})=>rest), null, 2);
+  const blob=new Blob([data],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='recipes.json'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+importFile.onchange=()=>{
+  const file=importFile.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const parsed=JSON.parse(reader.result);
+      if(!Array.isArray(parsed)) throw new Error("JSON bir dizi olmalı.");
+      const ok=parsed.every(r=> r && Object.keys(CATS).includes(r.c) && typeof r.n==='string' && Array.isArray(r.steps));
+      if(!ok) throw new Error("Reçete formatı geçersiz (geçerli c, n, steps gerekli).");
+      if(!confirm(`${parsed.length} reçete içe aktarılacak ve mevcut liste değiştirilecek. Devam edilsin mi?`)) return;
+      R=parsed; reindex(); saveRecipes(); buildCats(); buildGroups(); render();
+      renderAdminList();
+      alert(`${parsed.length} reçete içe aktarıldı.`);
+    }catch(e){ alert("İçe aktarma hatası: "+e.message); }
+    importFile.value='';
+  };
+  reader.readAsText(file,'utf-8');
+};
+
+function resetData(){
+  if(!confirm("Tüm değişiklikler silinip varsayılan reçetelere dönülecek (herkes için). Emin misiniz?")) return;
+  R=cloneSeed(); reindex(); saveRecipes(); buildCats(); buildGroups(); render();
+  renderAdminList();
+}
+
+// ---------- INIT ----------
+buildCats();buildGroups();render();
+syncFromServer();
+</script>
+</body>
+</html>

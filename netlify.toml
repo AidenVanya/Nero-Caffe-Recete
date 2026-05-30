@@ -1,0 +1,9 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Kök adres (/) doğrudan menü dosyasını göstersin
+[[redirects]]
+  from = "/"
+  to = "/cafe-recete-rehberi.html"
+  status = 200
