@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caffè Nero · Personel Rehberi</title>
+  <meta name="description"
+    content="Caffè Nero personel rehberi — yeni başlayan arkadaşlar için kahve standartları, ürün bilgisi, servis kuralları, hijyen ve mağaza kültürü." />
+
+  <!-- Open Graph / WhatsApp / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nerocaffe.netlify.app/cafe-personel-rehberi.html" />
+  <meta property="og:title" content="Caffè Nero · Personel Rehberi" />
+  <meta property="og:description"
+    content="Caffè Nero personel rehberi — yeni başlayan arkadaşlar için kahve standartları, ürün bilgisi, servis kuralları, hijyen ve mağaza kültürü." />
+  <meta property="og:image" content="https://nerocaffe.netlify.app/images/unnamed.jpg" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:alt" content="Caffè Nero logosu" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:site_name" content="Caffè Nero Personel Rehberi" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Caffè Nero · Personel Rehberi" />
+  <meta name="twitter:description"
+    content="Caffè Nero personel rehberi — yeni başlayan arkadaşlar için kahve standartları, ürün bilgisi, servis kuralları, hijyen ve mağaza kültürü." />
+  <meta name="twitter:image" content="https://nerocaffe.netlify.app/images/unnamed.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f4ecdc;
+      --paper-2: #efe5d2;
+      --ink: #2a2018;
+      --ink-soft: #5b5042;
+      --line: #d9cbb2;
+      --card: #fbf6ec;
+      --sicak: #bf6b2e;
+      /* amber */
+      --soguk: #3f7d86;
+      /* teal  */
+      --oz: #6f7e4c;
+      /* matcha */
+      --yemek: #b04a36;
+      /* terracotta */
+      --yeni: #9b5b8a;
+      /* plum  */
+      --kultur: #7c5fa6;
+      /* violet */
+      --shadow: 0 1px 0 rgba(42, 32, 24, .04), 0 12px 30px -18px rgba(42, 32, 24, .45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Schibsted Grotesk', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(circle at 15% 8%, rgba(191, 107, 46, .06), transparent 38%),
+        radial-gradient(circle at 88% 4%, rgba(63, 125, 134, .06), transparent 40%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(244, 236, 220, .86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .head-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 22px 14px
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .brand .mark {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 30px;
+      letter-spacing: -.5px;
+      line-height: 1;
+    }
+
+    .brand .mark em {
+      font-style: italic;
+      color: var(--kultur)
+    }
+
+    .brand .sub {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      letter-spacing: .3px
+    }
+
+    .count-pill {
+      margin-left: auto;
+      font-size: 12px;
+      color: var(--ink-soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 12px;
+      background: var(--card);
+      white-space: nowrap;
+    }
+
+    .nav-link {
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 12px;
+      background: var(--card);
+      color: var(--ink-soft);
+      transition: all .18s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-link:hover {
+      border-color: var(--ink-soft);
+      color: var(--ink)
+    }
+
+    /* ---------- Search ---------- */
+    .search-wrap {
+      position: relative;
+      margin-top: 14px
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: .4
+    }
+
+    #search {
+      width: 100%;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--ink);
+      padding: 13px 16px 13px 42px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    #search::placeholder {
+      color: #a99b85
+    }
+
+    #search:focus {
+      border-color: var(--kultur);
+      box-shadow: 0 0 0 4px rgba(124, 95, 166, .12)
+    }
+
+    /* ---------- Chips ---------- */
+    .chip-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none
+    }
+
+    .chip-row::-webkit-scrollbar {
+      display: none
+    }
+
+    .chip {
+      flex: 0 0 auto;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink-soft);
+      transition: all .18s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .chip .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%
+    }
+
+    .chip:hover {
+      border-color: var(--ink-soft);
+      color: var(--ink)
+    }
+
+    .chip.active {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink)
+    }
+
+    .chip.active .dot {
+      box-shadow: 0 0 0 2px rgba(244, 236, 220, .5)
+    }
+
+    .group-row {
+      margin-top: 8px
+    }
+
+    .group-row .chip {
+      font-size: 12.5px;
+      padding: 6px 12px
+    }
+
+    /* ---------- Grid ---------- */
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 26px 22px 80px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+      gap: 16px
+    }
+
+    .card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      color: inherit;
+      box-shadow: var(--shadow);
+      transition: transform .18s, box-shadow .18s, border-color .18s;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--catclr, var(--line))
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px -20px rgba(42, 32, 24, .5);
+      border-color: var(--catclr, var(--ink-soft))
+    }
+
+    .card .grp {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--catclr)
+    }
+
+    .card h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 19px;
+      line-height: 1.18;
+      margin: 7px 0 8px;
+      letter-spacing: -.2px
+    }
+
+    .card .ozet {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      line-height: 1.45
+    }
+
+    .empty {
+      text-align: center;
+      padding: 70px 20px;
+      color: var(--ink-soft)
+    }
+
+    .empty .big {
+      font-family: 'Fraunces', serif;
+      font-size: 24px;
+      color: var(--ink);
+      margin-bottom: 6px
+    }
+
+    /* ---------- Detail Modal ---------- */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background: rgba(30, 22, 16, .5);
+      backdrop-filter: blur(3px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end
+    }
+
+    .overlay.open {
+      opacity: 1;
+      pointer-events: auto
+    }
+
+    @media(min-width:720px) {
+      .overlay {
+        align-items: center
+      }
+    }
+
+    .sheet {
+      background: var(--paper);
+      width: 100%;
+      max-width: 640px;
+      max-height: 92vh;
+      overflow-y: auto;
+      border-radius: 22px 22px 0 0;
+      transform: translateY(24px);
+      transition: transform .28s cubic-bezier(.2, .8, .2, 1);
+      border: 1px solid var(--line);
+    }
+
+    @media(min-width:720px) {
+      .sheet {
+        border-radius: 22px
+      }
+    }
+
+    .overlay.open .sheet {
+      transform: translateY(0)
+    }
+
+    .sheet-head {
+      position: sticky;
+      top: 0;
+      background: var(--paper);
+      padding: 22px 24px 16px;
+      border-bottom: 1px solid var(--line);
+      z-index: 2
+    }
+
+    .sheet-head .grp {
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      color: var(--catclr)
+    }
+
+    .sheet-head h2 {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.12;
+      margin-top: 6px;
+      letter-spacing: -.4px;
+      padding-right: 36px
+    }
+
+    .closeb {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--card);
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--ink-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1
+    }
+
+    .closeb:hover {
+      color: var(--ink);
+      border-color: var(--ink-soft)
+    }
+
+    .sheet-body {
+      padding: 20px 24px 30px
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 6px
+    }
+
+    .pill {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 8px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--ink-soft)
+    }
+
+    .pill b {
+      color: var(--ink)
+    }
+
+    .ozet-line {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin-bottom: 18px
+    }
+
+    .sec-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin: 22px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .sec-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line)
+    }
+
+    .sec-title:first-child {
+      margin-top: 0
+    }
+
+    ol.steps {
+      list-style: none;
+      counter-reset: s
+    }
+
+    ol.steps li {
+      counter-increment: s;
+      position: relative;
+      padding: 0 0 16px 42px;
+      font-size: 14.5px;
+      color: var(--ink)
+    }
+
+    ol.steps li::before {
+      content: counter(s);
+      position: absolute;
+      left: 0;
+      top: -1px;
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      background: var(--catclr, var(--ink));
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    ol.steps li::after {
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 28px;
+      bottom: 4px;
+      width: 1.5px;
+      background: var(--line)
+    }
+
+    ol.steps li:last-child {
+      padding-bottom: 0
+    }
+
+    ol.steps li:last-child::after {
+      display: none
+    }
+
+    footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 22px 50px;
+      color: var(--ink-soft);
+      font-size: 12px;
+      text-align: center
+    }
+
+    footer span {
+      font-family: 'Fraunces', serif;
+      font-style: italic
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="head-inner">
+      <div class="brand">
+        <span class="mark">Caffè <em>Nero</em></span>
+        <span class="sub">Personel Rehberi · Yeni Başlayanlar İçin Bilgi Rehberi</span>
+        <span class="count-pill" id="countPill">—</span>
+        <a class="nav-link" href="cafe-recete-rehberi.html" title="Reçete rehberine dön">📖 Reçete Rehberi</a>
+      </div>
+      <div class="search-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m21 21-4.3-4.3" />
+        </svg>
+        <input id="search" type="text"
+          placeholder="Konu ara… (örn. espresso, bez rengi, six steps, nero kart)" autocomplete="off" />
+      </div>
+      <div class="chip-row" id="catRow"></div>
+      <div class="chip-row group-row" id="groupRow"></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" style="display:none">
+      <div class="big">Sonuç bulunamadı</div>
+      <div>Aramanı değiştirmeyi veya filtreleri temizlemeyi dene.</div>
+    </div>
+  </main>
+
+  <footer>
+    Kaynak: Yeni Başlayanlar İçin Genel Bilgiler · Mağaza Standartları &amp; Kültürü · <span>her gün öğrenmeye devam.</span>
+  </footer>
+
+  <div class="overlay" id="overlay">
+    <div class="sheet" id="sheet"></div>
+  </div>
+
+  <script>
+    const CATS = {
+      kahve: { label: "Kahve Standartları", clr: "var(--sicak)" },
+      urun: { label: "Ürün Bilgisi", clr: "var(--oz)" },
+      servis: { label: "Servis Kuralları", clr: "var(--soguk)" },
+      hijyen: { label: "Hijyen & Gıda Güvenliği", clr: "var(--yemek)" },
+      kultur: { label: "Mağaza Kültürü", clr: "var(--kultur)" },
+    };
+
+    // ---------- REHBER VERİSİ ----------
+    const GUIDE = [
+      /* ===================== KAHVE STANDARTLARI ===================== */
+      {
+        c: "kahve", g: "Standartlar", n: "Mükemmel Espresso",
+        ozet: "20-22 sn · altın sarısı renk · esmer şeker testi",
+        detail: [
+          "Akış süresi: 20-22 saniye",
+          "Renk: altın sarısı",
+          "Esmer şeker testi",
+          "Espresso bardakları su ile ısıtılarak servis edilir"
+        ]
+      },
+      {
+        c: "kahve", g: "Standartlar", n: "Mükemmel Kahve İçin 4 Değişken",
+        ozet: "Öğütme · Miktar · Sıkıştırma · Ortam",
+        detail: [
+          "1) Öğütme — doğru incelikte çekim",
+          "2) Miktar — doğru gramaj",
+          "3) Sıkıştırma — düzgün ve eşit tamp",
+          "4) Ortam — hava, ısı ve nem temasını en aza indirmek"
+        ]
+      },
+      {
+        c: "kahve", g: "Standartlar", n: "Classico House Blend",
+        ozet: "Orta kıvamlı kahve harmanı",
+        detail: [
+          "Classico House Blend — orta kıvamlı"
+        ]
+      },
+      {
+        c: "kahve", g: "Hazırlık Ölçüleri", n: "Filtre Kahve Hazırlığı",
+        ozet: "140 gr Classico House Blend · demleme 4 dk · 1 saat içinde servis",
+        detail: [
+          "Kullanılan kahve: 140 gr Classico House Blend",
+          "Demleme süresi: 4 dakika",
+          "Demlendikten sonra 1 saat içinde servis edilebilir",
+          "Servis ederken süt sorulur — paket ise süt içine konur, her durumda soğuk süt verilir"
+        ]
+      },
+      {
+        c: "kahve", g: "Hazırlık Ölçüleri", n: "Çayın Hazırlanışı",
+        ozet: "95 gr çay + 45 gr tomurcuk · 20 dk demleme",
+        detail: [
+          "95 gr çay + 45 gr tomurcuk kullanılır",
+          "Demleme süresi: 20 dakika",
+          "Demlendikten sonra 60 dakika içinde servis edilebilir"
+        ]
+      },
+      {
+        c: "kahve", g: "Hazırlık Ölçüleri", n: "Krema Hazırlanışı",
+        ozet: "630 ml krema + 40 ml gum şurubu · SKT 1 gün",
+        detail: [
+          "630 ml krema + 40 ml gum şurubu karıştırılarak hazırlanır",
+          "Hazırlandıktan sonra son kullanma tarihi (SKT): 1 gün"
+        ]
+      },
+      {
+        c: "kahve", g: "Hazırlık Ölçüleri", n: "Panini Isıtma",
+        ozet: "240°C'de 3 dakikada ısınır",
+        detail: [
+          "Paninilerin ısınma derecesi: 240°C",
+          "Isınma süresi: 3 dakika"
+        ]
+      },
+
+      /* ===================== ÜRÜN BİLGİSİ ===================== */
+      {
+        c: "urun", g: "Çeşitlerimiz", n: "Şurup Çeşitleri",
+        ozet: "Vanilya · Karamel · Fındık · Şekersiz Vanilya",
+        detail: [
+          "Şurup çeşitlerimiz: Vanilya, Karamel, Fındık, Şekersiz Vanilya",
+          "Kural: içeceklerde her ekstra kesilen ürün için, boy ne olursa olsun 1 pump şurup eklenir"
+        ]
+      },
+      {
+        c: "urun", g: "Çeşitlerimiz", n: "Süt Çeşitleri",
+        ozet: "Yağlı · Yağsız · Laktozsuz · Vegan (Badem, Hindistan Cevizi, Yulaf)",
+        detail: [
+          "Standart süt seçenekleri: Yağlı süt, Yağsız süt, Laktozsuz süt",
+          "Vegan seçenekler: Badem sütü, Hindistan cevizi sütü, Yulaf sütü"
+        ]
+      },
+      {
+        c: "urun", g: "Servis Detayları", n: "El Yakmaz Takılması Zorunlu İçecekler",
+        ozet: "Filtre kahve · Americano · Çay ve poşet çaylar",
+        detail: [
+          "Aşağıdaki içeceklerde 'el yakmaz' takılması zorunludur:",
+          "Filtre kahve",
+          "Americano",
+          "Çay ve poşet çaylar"
+        ]
+      },
+
+      /* ===================== SERVİS KURALLARI ===================== */
+      {
+        c: "servis", g: "Hazırlama Kuralları", n: "Bardak & Boy Kuralları",
+        ozet: "Grande boylar shot bardağıyla, Americano ölçüleri boya göre değişir",
+        detail: [
+          "Kâğıt bardakta hazırlanan içeceklerin GRANDE boyları shot bardağı kullanılarak hazırlanır",
+          "Americano kâğıt bardakta GRANDE - REGULAR yapılırken shot bardak kullanılır",
+          "Americano SMALL yapılacaksa: önce bardağa su konur, ardından kahve bardağa akıtılır"
+        ]
+      },
+      {
+        c: "servis", g: "Hazırlama Kuralları", n: "Süt Sorma Kuralı",
+        ozet: "Filtre kahve / Americano'da süt sorulur, soğuk süt verilir",
+        detail: [
+          "Filtre kahve ve Americano'da misafire süt isteyip istemediği sorulur",
+          "Paket siparişlerde süt doğrudan içecek içine konur",
+          "Her durumda soğuk süt verilir"
+        ]
+      },
+      {
+        c: "servis", g: "Misafir İletişimi", n: "Sipariş Alırken Sorulması Gereken Sorular",
+        ozet: "Paket mi? Fincan mı? Nero kart? Yardımcı olduk mu?",
+        detail: [
+          "Paket mi? Burada mı?",
+          "Fincan mı? Kupa mı?",
+          "Nero kartınızı ya da Nero mobil uygulamanızı rica edebilir miyim?",
+          "Size yardımcı olduk mu?"
+        ]
+      },
+      {
+        c: "servis", g: "Misafir İletişimi", n: "Nero Kart Kuralları",
+        ozet: "Sadece baristanın elleriyle hazırladığı açık içecekler için",
+        detail: [
+          "Nero kart yalnızca baristaların kendi elleriyle hazırladığı içecekler için verilir",
+          "Kapalı (paketli/şişe) içeceklere ve yiyeceklere Nero kart kesinlikle verilmez"
+        ]
+      },
+      {
+        c: "servis", g: "Servis Stili", n: "CN Servis Stili — One to One",
+        ozet: "Aynı anda 2 misafirden sipariş alabilmemiz gerekir",
+        detail: [
+          "Servis stilinin adı: One to One",
+          "Aynı anda 2 misafirden sipariş almamız gerekmektedir"
+        ]
+      },
+
+      /* ===================== HİJYEN & GIDA GÜVENLİĞİ ===================== */
+      {
+        c: "hijyen", g: "Temizlik", n: "Bez Renk Kodları",
+        ozet: "Mavi: temizlik · Sarı: food · Kırmızı: bar",
+        detail: [
+          "Mavi bez — temizlik bezi",
+          "Sarı bez — food (yiyecek) bezi",
+          "Kırmızı bez — bar bezi"
+        ]
+      },
+      {
+        c: "hijyen", g: "Gıda Güvenliği", n: "Donuk Yiyecek Çözme Kuralları",
+        ozet: "+4 dolapta, plastik kutuda 6-8 saatte çözülür, SKT etiketlenir",
+        detail: [
+          "Donuk yiyecekler çıkarıldıktan sonra +4°C dolaplarda, plastik kutularda 6-8 saat içinde çözülmelidir",
+          "Çözülen ürüne SKT (son kullanma tarihi) etiketi mutlaka yapıştırılmalıdır"
+        ]
+      },
+      {
+        c: "hijyen", g: "Gıda Güvenliği", n: "Donuk Sonrası Raf Ömrü",
+        ozet: "Çözüldükten sonra maksimum 48 saat",
+        detail: [
+          "Yiyecekler donuktan çıkarıldıktan sonra ömürleri en fazla 48 saattir"
+        ]
+      },
+
+      /* ===================== MAĞAZA KÜLTÜRÜ & TERİMLER ===================== */
+      {
+        c: "kultur", g: "Terimler Sözlüğü", n: "Nero Buzz",
+        ozet: "Mağaza atmosferindeki tüm sesler",
+        detail: [
+          "Mağaza atmosferinde çıkan tüm sesleri ifade eder: baristalar, ekipmanlar, müzik, misafirler vb."
+        ]
+      },
+      {
+        c: "kultur", g: "Terimler Sözlüğü", n: "Zap the Gap",
+        ozet: "Eksikleri fark eder etmez tamamlamak",
+        detail: [
+          "Eksik kalan noktaların hızla tamamlanması anlamına gelir",
+          "Örnek alanlar: kuru dolap, +4 vitrin dolabı, açık dolap"
+        ]
+      },
+      {
+        c: "kultur", g: "Terimler Sözlüğü", n: "Walk to Walk",
+        ozet: "Adım adım mağaza turu",
+        detail: [
+          "Adım adım mağaza turu anlamına gelir"
+        ]
+      },
+      {
+        c: "kultur", g: "Çalışma Standartları", n: "6 Steps / 6 Adım",
+        ozet: "Selamlama → Servis → Satış → Kart/Kasa → Masa Gösterme → Teşekkür",
+        detail: [
+          "1) Selamlamak",
+          "2) Servis yapmak",
+          "3) Satış yapmak",
+          "4) Nero kart, aplikasyon ve kasa işlemleri",
+          "5) Servis masasını göstermek",
+          "6) Teşekkür etmek ve tekrar gelmesi için davet etmek"
+        ]
+      },
+      {
+        c: "kultur", g: "Çalışma Standartları", n: "Barista Öncelikleri",
+        ozet: "Misafir → boş kap toplama → eksik tamamlama → bulaşık",
+        detail: [
+          "1) Misafirlerimiz Kraldır",
+          "2) Boş kapları toplama ve temizleme",
+          "3) Eksik ürünleri tamamlama",
+          "4) Bulaşıkları yıkama"
+        ]
+      },
+      {
+        c: "kultur", g: "Çalışma Standartları", n: "Altın Kurallar",
+        ozet: "Espresso kolu · buhar çubuğu · fırça · 3 numara · sürekli temizlik",
+        detail: [
+          "Espresso kolunu düzleştir ve temizle",
+          "Buhar çubuğunu aç-kapa, sil",
+          "Fırça kullan",
+          "3 numaralı tuşu kullan",
+          "Sürekli temizle"
+        ]
+      },
+    ];
+
+    GUIDE.forEach((it, i) => it.id = i);
+
+    // ---------- STATE ----------
+    let curCat = "all";
+    let curGroup = "all";
+    let curSearch = "";
+
+    const grid = document.getElementById('grid');
+    const empty = document.getElementById('empty');
+    const catRow = document.getElementById('catRow');
+    const groupRow = document.getElementById('groupRow');
+    const countPill = document.getElementById('countPill');
+    const searchEl = document.getElementById('search');
+    const overlay = document.getElementById('overlay');
+    const sheet = document.getElementById('sheet');
+
+    // ---------- CATEGORY CHIPS ----------
+    function buildCats() {
+      const items = [{ key: "all", label: "Tümü", clr: "var(--ink)" }];
+      Object.keys(CATS).forEach(k => items.push({ key: k, label: CATS[k].label, clr: CATS[k].clr }));
+      catRow.innerHTML = items.map(it => `
+    <button class="chip ${it.key === curCat ? 'active' : ''}" data-cat="${it.key}">
+      <span class="dot" style="background:${it.clr}"></span>${it.label}
+    </button>`).join('');
+      catRow.querySelectorAll('.chip').forEach(c => c.onclick = () => {
+        curCat = c.dataset.cat; curGroup = "all"; buildCats(); buildGroups(); render();
+      });
+    }
+
+    // ---------- GROUP CHIPS ----------
+    function buildGroups() {
+      let pool = GUIDE;
+      if (curCat !== "all") pool = GUIDE.filter(r => r.c === curCat);
+      const groups = [...new Set(pool.map(r => r.g))];
+      if (groups.length <= 1 && curCat === "all") { groupRow.innerHTML = ""; return; }
+      const items = [`<button class="chip ${curGroup === 'all' ? 'active' : ''}" data-grp="all">Tüm gruplar</button>`]
+        .concat(groups.map(g => `<button class="chip ${curGroup === g ? 'active' : ''}" data-grp="${g}">${g}</button>`));
+      groupRow.innerHTML = items.join('');
+      groupRow.querySelectorAll('.chip').forEach(c => c.onclick = () => {
+        curGroup = c.dataset.grp; buildGroups(); render();
+      });
+    }
+
+    // ---------- FILTER + RENDER ----------
+    function matches(r) {
+      if (curCat !== "all" && r.c !== curCat) return false;
+      if (curGroup !== "all" && r.g !== curGroup) return false;
+      if (curSearch) {
+        const hay = (r.n + " " + r.g + " " + CATS[r.c].label + " " + r.ozet + " " + r.detail.join(" ")).toLocaleLowerCase('tr');
+        if (!hay.includes(curSearch)) return false;
+      }
+      return true;
+    }
+
+    function render() {
+      const list = GUIDE.filter(matches);
+      countPill.textContent = `${list.length} konu`;
+      if (!list.length) { grid.innerHTML = ""; empty.style.display = "block"; return; }
+      empty.style.display = "none";
+      grid.innerHTML = list.map(r => {
+        const clr = CATS[r.c].clr;
+        return `<button class="card" style="--catclr:${clr}" data-id="${r.id}">
+      <div class="grp">${r.g}</div>
+      <h3>${r.n}</h3>
+      <div class="ozet">${r.ozet}</div>
+    </button>`;
+      }).join('');
+      grid.querySelectorAll('.card').forEach(c => c.onclick = () => openSheet(+c.dataset.id));
+    }
+
+    // ---------- DETAIL SHEET ----------
+    function openSheet(id) {
+      const r = GUIDE.find(x => x.id === id);
+      const clr = CATS[r.c].clr;
+      sheet.innerHTML = `
+    <div class="sheet-head" style="--catclr:${clr}">
+      <button class="closeb" id="closeb">×</button>
+      <div class="grp">${r.g}</div>
+      <h2>${r.n}</h2>
+    </div>
+    <div class="sheet-body" style="--catclr:${clr}">
+      <div class="meta-row"><span class="pill">${CATS[r.c].label}</span></div>
+      <div class="ozet-line">${r.ozet}</div>
+      <div class="sec-title">Bilmeniz Gerekenler</div>
+      <ol class="steps">${r.detail.map(s => `<li>${s}</li>`).join('')}</ol>
+    </div>`;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      // Geçmişe kayıt ekle: mobilde geri tuşu/kaydırma sayfadan çıkmak yerine detayı kapatsın
+      if (!sheetOpen) {
+        sheetOpen = true;
+        history.pushState({ neroSheet: true }, '');
+      }
+      document.getElementById('closeb').onclick = closeSheet;
+    }
+    let sheetOpen = false;
+    function doCloseSheet() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+    function closeSheet() {
+      if (sheetOpen) { history.back(); } // popstate doCloseSheet'i tetikleyecek
+      else { doCloseSheet(); }
+    }
+    window.addEventListener('popstate', () => {
+      if (sheetOpen) { sheetOpen = false; doCloseSheet(); }
+    });
+    overlay.onclick = e => { if (e.target === overlay) closeSheet(); };
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+
+    // ---------- SEARCH ----------
+    let t;
+    searchEl.oninput = () => { clearTimeout(t); t = setTimeout(() => { curSearch = searchEl.value.trim().toLocaleLowerCase('tr'); render(); }, 120); };
+
+    // ---------- INIT ----------
+    buildCats();
+    buildGroups();
+    render();
+  </script>
+</body>
+
+</html>

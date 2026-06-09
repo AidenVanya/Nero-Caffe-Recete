@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caffè Nero · Personel Rehberi</title>
+  <meta name="description" content="Caffè Nero personel rehberi — yeni başlayanlar için kahve standartları, servis kuralları, hijyen ve mağaza kültürü bilgi rehberi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f4ecdc;
+      --paper-2: #efe5d2;
+      --ink: #2a2018;
+      --ink-soft: #5b5042;
+      --line: #d9cbb2;
+      --card: #fbf6ec;
+      --sicak: #bf6b2e;
+      --soguk: #3f7d86;
+      --oz: #6f7e4c;
+      --yemek: #b04a36;
+      --kultur: #7b5ea7;
+      --shadow: 0 1px 0 rgba(42,32,24,.04), 0 6px 20px -10px rgba(42,32,24,.28);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Schibsted Grotesk', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(circle at 15% 8%, rgba(191,107,46,.06), transparent 38%),
+        radial-gradient(circle at 88% 4%, rgba(63,125,134,.06), transparent 40%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(244,236,220,.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .head-inner {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 16px 22px 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .brand .mark {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 28px;
+      letter-spacing: -.5px;
+      line-height: 1;
+    }
+
+    .brand .mark em {
+      font-style: italic;
+      color: var(--sicak);
+    }
+
+    .brand .sub {
+      font-size: 12px;
+      color: var(--ink-soft);
+      letter-spacing: .3px;
+    }
+
+    .nav-link {
+      margin-left: auto;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 12px;
+      background: var(--card);
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: all .18s;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      border-color: var(--ink-soft);
+      color: var(--ink);
+    }
+
+    /* ---------- Nav chips (section jump links) ---------- */
+    .chip-row {
+      display: flex;
+      gap: 7px;
+      margin-top: 10px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+    .chip-row::-webkit-scrollbar { display: none; }
+
+    .chip {
+      flex: 0 0 auto;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 6px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink-soft);
+      transition: all .18s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .chip .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .chip:hover {
+      border-color: var(--ink-soft);
+      color: var(--ink);
+    }
+
+    .chip.active {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .chip.active .dot {
+      box-shadow: 0 0 0 2px rgba(244,236,220,.5);
+    }
+
+    /* ---------- Main ---------- */
+    main {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 36px 22px 80px;
+    }
+
+    /* ---------- Section ---------- */
+    .section-block {
+      margin-bottom: 52px;
+      scroll-margin-top: 100px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--catclr, var(--line));
+      margin-bottom: 22px;
+    }
+
+    .section-header h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -.3px;
+      color: var(--ink);
+    }
+
+    .section-header .sec-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--catclr);
+      flex-shrink: 0;
+    }
+
+    .section-header .sec-count {
+      margin-left: auto;
+      font-size: 11.5px;
+      color: var(--ink-soft);
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 10px;
+    }
+
+    /* ---------- Group label ---------- */
+    .group-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--catclr);
+      margin: 22px 0 10px 2px;
+      opacity: .8;
+    }
+
+    .section-block > .group-label:first-of-type {
+      margin-top: 0;
+    }
+
+    /* ---------- Item ---------- */
+    .item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--catclr);
+      border-radius: 0 12px 12px 0;
+      padding: 14px 18px 14px 16px;
+      margin-bottom: 9px;
+      box-shadow: var(--shadow);
+    }
+
+    .item-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 7px;
+      line-height: 1.3;
+    }
+
+    .item-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .item-list li {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 2px;
+    }
+
+    .item-list li:last-child { margin-bottom: 0; }
+
+    .item-list li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--catclr);
+      font-weight: 600;
+      opacity: .7;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-soft);
+      opacity: .7;
+      padding: 24px 22px 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 480px) {
+      .head-inner { padding: 14px 16px 10px; }
+      .brand .mark { font-size: 24px; }
+      main { padding: 24px 16px 60px; }
+      .item { padding: 12px 14px 12px 14px; }
+      .item-title { font-size: 14px; }
+      .item-list li { font-size: 13px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="head-inner">
+      <div class="brand">
+        <span class="mark">Caffè <em>Nero</em></span>
+        <span class="sub">Personel Rehberi · Yeni Başlayanlar İçin Bilgi Rehberi</span>
+        <a class="nav-link" href="cafe-recete-rehberi.html">Reçete Rehberi</a>
+      </div>
+      <div class="chip-row" id="navRow"></div>
+    </div>
+  </header>
+
+  <main id="main"></main>
+
+  <footer>
+    Nero Caffe Personel Rehberi · Yeni Başlayanlar İçin Genel Bilgiler
+  </footer>
+
+  <script>
+    const CATS = {
+      kahve:   { label: "Kahve Standartları",        clr: "var(--sicak)"  },
+      urun:    { label: "Ürün Bilgisi",               clr: "var(--oz)"     },
+      servis:  { label: "Servis Kuralları",            clr: "var(--soguk)"  },
+      hijyen:  { label: "Hijyen & Gıda Güvenliği",   clr: "var(--yemek)"  },
+      kultur:  { label: "Mağaza Kültürü & Terimler", clr: "var(--kultur)" },
+    };
+
+    const GUIDE = [
+      /* ===================== KAHVE STANDARTLARI ===================== */
+      {
+        c: "kahve", g: "Standartlar", n: "Mükemmel Espresso",
+        detail: [
+          "Akış süresi: 20-22 saniye",
+          "Renk: altın sarısı",
+          "Esmer şeker testi",
+          "Espresso bardakları su ile ısıtılarak servis edilir"
+        ]
+      },
+      {
+        c: "kahve", g: "Standartlar", n: "Mükemmel Kahve İçin 4 Değişken",
+        detail: [
+          "1) Öğütme",
+          "2) Miktar",
+          "3) Sıkıştırma",
+          "4) Ortam — hava, ısı ve nem temasını en aza indirmek"
+        ]
+      },
+      {
+        c: "kahve", g: "Standartlar", n: "Classico House Blend",
+        detail: [
+          "Classico House Blend — orta kıvamlı"
+        ]
+      },
+      {
+        c: "kahve", g: "Hazırlık Ölçüleri", n: "Filtre Kahve Hazırlığı",
+        detail: [
+          "Kullanılan kahve: 140 gr Classico House Blend",
+          "Demleme süresi: 4 dakika",
+          "Demlendikten sonra 1 saat içinde servis edilebilir",
+          "Servis ederken süt sorulur — paket ise süt içine konur, her durumda soğuk süt verilir"
+        ]
+      },
+      {
+        c: "kahve", g: "Hazırlık Ölçüleri", n: "Çayın Hazırlanışı",
+        detail: [
+          "95 gr çay + 45 gr tomurcuk kullanılır",
+          "Demleme süresi: 20 dakika",
+          "Demlendikten sonra 60 dakika içinde servis edilebilir"
+        ]
+      },
+      {
+        c: "kahve", g: "Hazırlık Ölçüleri", n: "Krema Hazırlanışı",
+        detail: [
+          "630 ml krema + 40 ml gum şurubu karıştırılarak hazırlanır",
+          "Hazırlandıktan sonra son kullanma tarihi (SKT): 1 gün"
+        ]
+      },
+      {
+        c: "kahve", g: "Hazırlık Ölçüleri", n: "Panini Isıtma",
+        detail: [
+          "Paninilerin ısınma derecesi: 240°C",
+          "Isınma süresi: 3 dakika"
+        ]
+      },
+
+      /* ===================== ÜRÜN BİLGİSİ ===================== */
+      {
+        c: "urun", g: "Çeşitlerimiz", n: "Şurup Çeşitleri",
+        detail: [
+          "Vanilya, Karamel, Fındık, Şekersiz Vanilya",
+          "Her ekstra kesilen ürün için, boy ne olursa olsun 1 pump şurup eklenir"
+        ]
+      },
+      {
+        c: "urun", g: "Çeşitlerimiz", n: "Süt Çeşitleri",
+        detail: [
+          "Standart: Yağlı süt, Yağsız süt, Laktozsuz süt",
+          "Vegan: Badem sütü, Hindistan cevizi sütü, Yulaf sütü"
+        ]
+      },
+      {
+        c: "urun", g: "Servis Detayları", n: "El Yakmaz Takılması Zorunlu İçecekler",
+        detail: [
+          "Filtre kahve",
+          "Americano",
+          "Çay ve poşet çaylar"
+        ]
+      },
+
+      /* ===================== SERVİS KURALLARI ===================== */
+      {
+        c: "servis", g: "Hazırlama Kuralları", n: "Bardak & Boy Kuralları",
+        detail: [
+          "Kâğıt bardakta hazırlanan tüm içeceklerin GRANDE boyları shot bardağı kullanılarak hazırlanır",
+          "Americano kâğıt bardakta GRANDE – REGULAR yapılırken shot bardak kullanılır",
+          "Americano SMALL yapılacaksa: önce bardağa su konur, ardından kahve bardağa akıtılır"
+        ]
+      },
+      {
+        c: "servis", g: "Hazırlama Kuralları", n: "Süt Sorma Kuralı",
+        detail: [
+          "Filtre kahve ve Americano'da misafire süt isteyip istemediği sorulur",
+          "Paket siparişlerde süt doğrudan içecek içine konur",
+          "Her durumda soğuk süt verilir"
+        ]
+      },
+      {
+        c: "servis", g: "Misafir İletişimi", n: "Sipariş Alırken Sorulması Gereken Sorular",
+        detail: [
+          "Paket mi? Burada mı?",
+          "Fincan mı? Kupa mı?",
+          "Nero kartınızı ya da Nero mobil uygulamanızı rica edebilir miyim?",
+          "Size yardımcı olduk mu?"
+        ]
+      },
+      {
+        c: "servis", g: "Misafir İletişimi", n: "Nero Kart Kuralları",
+        detail: [
+          "Nero kart yalnızca baristaların kendi elleriyle hazırladığı içecekler için verilir",
+          "Kapalı içeceklere ve yiyeceklere Nero kart kesinlikle verilmez"
+        ]
+      },
+      {
+        c: "servis", g: "Servis Stili", n: "CN Servis Stili — One to One",
+        detail: [
+          "Servis stilinin adı: One to One",
+          "Aynı anda 2 misafirden sipariş almamız gerekmektedir"
+        ]
+      },
+
+      /* ===================== HİJYEN & GIDA GÜVENLİĞİ ===================== */
+      {
+        c: "hijyen", g: "Temizlik", n: "Bez Renk Kodları",
+        detail: [
+          "Mavi bez — temizlik bezi",
+          "Sarı bez — food (yiyecek) bezi",
+          "Kırmızı bez — bar bezi"
+        ]
+      },
+      {
+        c: "hijyen", g: "Gıda Güvenliği", n: "Donuk Yiyecek Çözme Kuralları",
+        detail: [
+          "Donuk yiyecekler çıkarıldıktan sonra +4°C dolaplarda, plastik kutularda 6-8 saat içinde çözülmelidir",
+          "Çözülen ürüne SKT (son kullanma tarihi) etiketi mutlaka yapıştırılmalıdır"
+        ]
+      },
+      {
+        c: "hijyen", g: "Gıda Güvenliği", n: "Donuk Sonrası Raf Ömrü",
+        detail: [
+          "Yiyecekler donuktan çıkarıldıktan sonra ömürleri en fazla 48 saattir"
+        ]
+      },
+
+      /* ===================== MAĞAZA KÜLTÜRÜ & TERİMLER ===================== */
+      {
+        c: "kultur", g: "Terimler Sözlüğü", n: "Nero Buzz",
+        detail: [
+          "Mağaza atmosferinde çıkan tüm sesleri ifade eder: baristalar, ekipmanlar, müzik, misafirler vb."
+        ]
+      },
+      {
+        c: "kultur", g: "Terimler Sözlüğü", n: "Zap the Gap",
+        detail: [
+          "Eksik kalan noktaların hızla tamamlanması anlamına gelir",
+          "Örnek alanlar: kuru dolap, +4 vitrin dolabı, açık dolap"
+        ]
+      },
+      {
+        c: "kultur", g: "Terimler Sözlüğü", n: "Walk to Walk",
+        detail: [
+          "Adım adım mağaza turu anlamına gelir"
+        ]
+      },
+      {
+        c: "kultur", g: "Çalışma Standartları", n: "6 Steps / 6 Adım",
+        detail: [
+          "1) Selamlamak",
+          "2) Servis yapmak",
+          "3) Satış yapmak",
+          "4) Nero kart, aplikasyon ve kasa işlemleri",
+          "5) Servis masasını göstermek",
+          "6) Teşekkür etmek ve tekrar gelmesi için davet etmek"
+        ]
+      },
+      {
+        c: "kultur", g: "Çalışma Standartları", n: "Barista Öncelikleri",
+        detail: [
+          "1) Misafirlerimiz Kraldır",
+          "2) Boş kapları toplama ve temizleme",
+          "3) Eksik ürünleri tamamlama",
+          "4) Bulaşıkları yıkama"
+        ]
+      },
+      {
+        c: "kultur", g: "Çalışma Standartları", n: "Altın Kurallar",
+        detail: [
+          "Espresso kolunu düzleştir ve temizle",
+          "Buhar çubuğunu aç-kapa, sil",
+          "Fırça kullan",
+          "3 numaralı tuşu kullan",
+          "Sürekli temizle"
+        ]
+      },
+    ];
+
+    const navRow = document.getElementById('navRow');
+    const mainEl = document.getElementById('main');
+
+    /* ---------- Build nav ---------- */
+    navRow.innerHTML = Object.entries(CATS).map(([key, cat]) =>
+      `<a class="chip" href="#sec-${key}" data-sec="${key}">
+        <span class="dot" style="background:${cat.clr}"></span>${cat.label}
+       </a>`
+    ).join('');
+
+    /* ---------- Build sections ---------- */
+    Object.entries(CATS).forEach(([key, cat]) => {
+      const items = GUIDE.filter(g => g.c === key);
+      if (!items.length) return;
+
+      const groups = [...new Set(items.map(i => i.g))];
+
+      const bodyHTML = groups.map(group => {
+        const grpItems = items.filter(i => i.g === group);
+        return `<div class="group-label" style="--catclr:${cat.clr}">${group}</div>` +
+          grpItems.map(item =>
+            `<div class="item" style="--catclr:${cat.clr}">
+              <div class="item-title">${item.n}</div>
+              <ul class="item-list">${item.detail.map(d => `<li>${d}</li>`).join('')}</ul>
+            </div>`
+          ).join('');
+      }).join('');
+
+      const sec = document.createElement('section');
+      sec.className = 'section-block';
+      sec.id = `sec-${key}`;
+      sec.innerHTML = `
+        <div class="section-header" style="--catclr:${cat.clr}">
+          <span class="sec-dot"></span>
+          <h2>${cat.label}</h2>
+          <span class="sec-count">${items.length} konu</span>
+        </div>
+        ${bodyHTML}`;
+      mainEl.appendChild(sec);
+    });
+
+    /* ---------- Active nav on scroll ---------- */
+    const chips = navRow.querySelectorAll('.chip[data-sec]');
+    const sections = mainEl.querySelectorAll('.section-block');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.id.replace('sec-', '');
+        const chip = navRow.querySelector(`[data-sec="${id}"]`);
+        if (chip) chip.classList.toggle('active', entry.isIntersecting);
+      });
+    }, { rootMargin: '-72px 0px -55% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+
+    /* ---------- Smooth scroll on chip click ---------- */
+    chips.forEach(chip => {
+      chip.addEventListener('click', e => {
+        e.preventDefault();
+        const sec = document.getElementById('sec-' + chip.dataset.sec);
+        if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>

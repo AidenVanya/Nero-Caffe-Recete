@@ -7,3 +7,9 @@
   from = "/"
   to = "/cafe-recete-rehberi.html"
   status = 200
+
+# Personel rehberi için kısa adres
+[[redirects]]
+  from = "/rehber"
+  to = "/cafe-personel-rehberi.html"
+  status = 200
